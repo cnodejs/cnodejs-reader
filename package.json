@@ -29,11 +29,7 @@
     "vinyl-transform": "0.0.1"
   },
   "description": "A chat app",
-  "dependencies": {
-    "cors": "^2.5.0",
-    "express": "^4.10.0",
-    "request": "^2.46.0"
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/jiyinyiyong/cnodejs-reader.git"

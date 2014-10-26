@@ -1,8 +1,9 @@
 
 React = require 'react'
+$ = React.DOM
 
-App = require './components/app'
+Layout = require './app/layout'
 
-component = App {}
+component = Layout {}
 
 React.renderComponent component, document.body

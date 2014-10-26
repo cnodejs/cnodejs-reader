@@ -1,2 +1,11 @@
 
-body {}
+@import url('components/app.css');
+
+body {
+  margin: 0;
+  font-family: Optima;
+}
+
+body * {
+  box-sizing: border-box;
+}
