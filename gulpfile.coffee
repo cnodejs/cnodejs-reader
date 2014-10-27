@@ -4,6 +4,7 @@ gulp = require 'gulp'
 dev = yes
 libraries = [
   'react'
+  'superagent'
 ]
 
 gulp.task 'folder', ->

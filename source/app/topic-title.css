@@ -1,0 +1,22 @@
+
+.topic-title {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
+}
+
+.topic-title .title {
+    line-height: 2em;
+    font-size: 18px;
+    max-width: 600px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.topic-title .avatar {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    margin-right: 10px;
+}

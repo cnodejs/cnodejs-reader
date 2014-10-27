@@ -29,7 +29,9 @@
     "vinyl-transform": "0.0.1"
   },
   "description": "A chat app",
-  "dependencies": {},
+  "dependencies": {
+    "superagent": "^0.20.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jiyinyiyong/cnodejs-reader.git"

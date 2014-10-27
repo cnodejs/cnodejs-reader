@@ -4,8 +4,7 @@ React = require 'react'
 $ = React.DOM
 
 module.exports = React.createClass
-  displayName: 'module-loading'
+  displayName: 'app-header'
 
   render: ->
-    $.div className: 'module-loading',
-      'loading'
+    $.div className: 'app-header', 'app-header'
