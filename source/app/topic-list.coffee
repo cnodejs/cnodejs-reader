@@ -3,7 +3,7 @@ React = require 'react'
 request = require 'superagent'
 
 $ = React.DOM
-Loading = require '../modules/loading'
+Loading = require '../module/loading'
 TopicTitle = require './topic-title'
 
 module.exports = React.createClass

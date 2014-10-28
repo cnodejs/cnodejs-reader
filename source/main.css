@@ -1,6 +1,9 @@
 
 @import url('app/layout.css');
 
+@import url('module/cover.css');
+@import url('module/button.css');
+
 body {
   margin: 0;
   font-family: Optima;
@@ -8,4 +11,11 @@ body {
 
 body * {
   box-sizing: border-box;
+}
+
+input, textarea {
+  line-height: 2em;
+  font-size: 14px;
+  outline: none;
+  padding: 0 1em;
 }
