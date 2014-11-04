@@ -2,11 +2,13 @@
 React = require 'react'
 request = require 'superagent'
 
+config = require '../config'
+
 $ = React.DOM
 Loading = require '../module/loading'
 TopicTitle = require './topic-title'
 
-module.exports = React.createClass
+module.exports = React.createFactory React.createClass
   displayName: 'topic-list'
 
   getInitialState: ->
@@ -16,7 +18,7 @@ module.exports = React.createClass
   componentDidMount: ->
     @setState loading: yes
     request
-    .get('http://localhost:3000/api/v1/topics')
+    .get("#{config.host}/topics")
     .end (res) =>
       @setState loading: no
       if res.status is 200

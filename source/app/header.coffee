@@ -2,10 +2,12 @@
 React = require 'react'
 request = require 'superagent'
 
+config = require '../config'
+
 $ = React.DOM
 Cover = require '../module/cover'
 
-module.exports = React.createClass
+module.exports = React.createFactory React.createClass
   displayName: 'app-header'
 
   getInitialState: ->
@@ -23,7 +25,7 @@ module.exports = React.createClass
   checkToken: (event) ->
     token = @refs.token.getDOMNode().value
     request
-    .post 'http://localhost:3000'
+    .post "#{config.host}/accesstoken"
     .send accesstoken: token
     .end (res) =>
       if res.ok

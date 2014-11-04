@@ -1,9 +1,13 @@
 
 gulp = require 'gulp'
 
+project = 'cnodejs-reader'
+
 dev = yes
 libraries = [
   'react'
+  'react-router'
+  'marked'
   'superagent'
 ]
 
@@ -25,6 +29,8 @@ gulp.task 'watch', ->
   transform = require 'vinyl-transform'
   browserify = require 'browserify'
   rename = require 'gulp-rename'
+  reloader = require 'gulp-reloader'
+  reloader.listen()
 
   watch glob: 'source/**/*.cirru', emitOnGlob: no, (files) ->
     gulp
@@ -32,6 +38,7 @@ gulp.task 'watch', ->
     .pipe plumber()
     .pipe html(data: {dev: yes})
     .pipe gulp.dest('./')
+    .pipe reloader(project)
 
   watch glob: 'source/**/*.coffee', emitOnGlob: no, (files) ->
     files
@@ -44,6 +51,7 @@ gulp.task 'watch', ->
       b.external library for library in libraries
       b.bundle()
     .pipe gulp.dest('build/')
+    .pipe reloader(project)
     return files
 
 gulp.task 'js', ->
@@ -122,9 +130,13 @@ gulp.task 'clean', (cb) ->
   del = require 'del'
   del ['build/'], cb
 
+gulp.task 'start', ->
+  sequence = require 'run-sequence'
+  sequence 'clean', 'vendor'
+
 gulp.task 'dev', ->
   sequence = require 'run-sequence'
-  sequence 'clean', ['html', 'coffee', 'vendor'], 'js'
+  sequence ['html', 'coffee'], 'js'
 
 gulp.task 'build', ->
   dev = no
@@ -140,7 +152,7 @@ gulp.task 'rsync', ->
     src: '.'
     recursive: true
     args: ['--verbose']
-    dest: "tiye:~/repo/cnodejs-reader"
+    dest: "tiye:~/repo/#{project}"
     deleteAll: yes
     exclude: [
       'node_modules/'

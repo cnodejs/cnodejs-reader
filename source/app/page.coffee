@@ -3,29 +3,33 @@ React = require 'react'
 $ = React.DOM
 
 Header = require './header'
-TopicList = require './topic-list'
+key = 'cnodejs-reader-token'
 
-module.exports = React.createClass
-  displayName: 'app-layout'
+module.exports = React.createFactory React.createClass
+  displayName: 'app-page'
 
   getInitialState: ->
     logined: no
-    token: null
+    token: localStorage.getItem(key)
     user: null
+    view: 'topics' # 'topic', 'user', 'edit'
+    id: null
 
   login: (user, token) ->
     @setState {logined: yes, token, user}
+    localStorage.setItem key, token
 
   logout: ->
     @setState logined: no, token: null, user: null
+    localStorage.setItem key, null
 
   render: ->
 
-    $.div className: 'app-layout',
+    $.div className: 'app-page',
       Header
         logined: @state.logined
         user: @state.user
         token: @state.token
         login: @login
         logout: @logout
-      TopicList {}
+      @props.activeRouteHandler()

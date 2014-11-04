@@ -3,7 +3,7 @@ React = require 'react'
 
 $ = React.DOM
 
-module.exports = React.createClass
+module.exports = React.createFactory React.createClass
   displayName: 'topic-title'
 
   render: ->
