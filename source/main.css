@@ -3,6 +3,7 @@
 
 @import url('module/overlay.css');
 @import url('module/button.css');
+@import url('module/editor.css');
 
 body {
   margin: 0;
@@ -11,6 +12,7 @@ body {
 
 body * {
   box-sizing: border-box;
+  box-shadow: 0 0 1px gray;
 }
 
 input, textarea {

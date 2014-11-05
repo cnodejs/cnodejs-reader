@@ -1,5 +1,24 @@
 
 @import url('sidebar.css');
 @import url('topic-list.css');
+@import url('topic-page.css');
 
-.app-page {}
+.app-page {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+}
+
+.app-page .app-sidebar {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.app-page .topic-list,
+.app-page .topic-page {
+    flex: 1;
+}

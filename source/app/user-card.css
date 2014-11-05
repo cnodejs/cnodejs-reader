@@ -1,0 +1,12 @@
+
+.user-card {}
+
+.user-card .name {}
+
+.user-card .avatar {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: middle;
+}

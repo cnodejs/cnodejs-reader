@@ -16,7 +16,7 @@ TopicPage = require './app/topic-page'
 UserPage = require './app/user-page'
 PostPage = require './app/post-page'
 
-routes = Routes location: 'history',
+routes = Routes location: 'hash',
   Route page: '/', handler: Page,
     DefaultRoute handler: TopicList
     NotFoundRoute handler: TopicList

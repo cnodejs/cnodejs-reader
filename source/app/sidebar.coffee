@@ -1,15 +1,18 @@
 
 React = require 'react'
 request = require 'superagent'
+Router = require 'react-router'
 
 config = require '../config'
 
 $ = React.DOM
+Navigation = Router.Navigation
 
 Olverlay = require '../module/overlay'
 
 module.exports = React.createFactory React.createClass
   displayName: 'app-sidebar'
+  mixins: [Navigation]
 
   getInitialState: ->
     openBox: no
@@ -24,7 +27,6 @@ module.exports = React.createFactory React.createClass
     @setState openBox: no
 
   componentDidMount: ->
-    console.log @props.token
     if @props.token?
       @auth @props.token
 
@@ -44,23 +46,31 @@ module.exports = React.createFactory React.createClass
     if event.keyCode is 13
       @checkToken()
 
+  onHomeClick: ->
+    @transitionTo '/'
+
   render: ->
-    if @props.user?
-      $.div className: 'app-sidebar',
-        $.div className: 'username', @props.user
-        $.div
-          className: 'button'
-          onClick: @logout
-          'Logout'
-    else
-      $.div className: 'app-sidebar',
-        $.div className: 'button', onClick: @openLogin, 'Login'
-        if @state.openBox
-          Olverlay onRemove: @hideBox,
-            $.div className: 'line', 'Copy your token from CNode:'
-            $.input ref: 'token', className: 'token', placeholder: 'Paste token'
-            $.div
-              className: 'button'
-              onClick: @checkToken
-              onKeyDown: @onTokenKeydown
-              'Submit'
+    $.div className: 'app-sidebar',
+      $.div
+        className: 'home',
+        onClick: @onHomeClick
+        'Home'
+      if @props.user?
+        $.div className: 'bottom',
+          $.span className: 'username', @props.user
+          $.span
+            className: 'button'
+            onClick: @logout
+            'Logout'
+      else
+        $.div className: 'account',
+          $.div className: 'button', onClick: @openLogin, 'Login'
+          if @state.openBox
+            Olverlay onRemove: @hideBox,
+              $.div className: 'line', 'Copy your token from CNode:'
+              $.input ref: 'token', className: 'token', placeholder: 'Paste token'
+              $.div
+                className: 'button'
+                onClick: @checkToken
+                onKeyDown: @onTokenKeydown
+                'Submit'

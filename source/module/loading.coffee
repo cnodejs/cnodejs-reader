@@ -7,11 +7,10 @@ module.exports = React.createFactory React.createClass
   displayName: 'module-loading'
 
   propTypes:
-    mode: React.PropTypes.string # 'normal', 'loading'
-
-  getDefaultProps: ->
-    mode: 'normal'
+    data: React.PropTypes.string # 'ease', 'busy'
 
   render: ->
     $.div className: 'module-loading',
-      'loading'
+      switch @props.data
+        when 'ease' then ''
+        when 'busy' then 'loading'

@@ -1,5 +1,9 @@
 
-.app-header {
-    height: 60px;
-    line-height: 60px;
+.app-sidebar {
 }
+
+.app-sidebar .home {
+    cursor: pointer;
+}
+
+.app-sidebar .account {}
