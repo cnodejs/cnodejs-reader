@@ -4,6 +4,8 @@
 @import url('module/overlay.css');
 @import url('module/button.css');
 @import url('module/editor.css');
+@import url('module/select.css');
+@import url('module/loading.css');
 
 body {
   margin: 0;

@@ -13,4 +13,4 @@ module.exports = React.createFactory React.createClass
     $.div className: 'module-loading',
       switch @props.data
         when 'ease' then ''
-        when 'busy' then 'loading'
+        when 'busy' then 'Loading...'

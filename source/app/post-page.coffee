@@ -8,6 +8,7 @@ Navigation = Router.Navigation
 
 Editor = require '../module/editor'
 config = require '../config'
+Select = require '../module/select'
 
 module.exports = React.createFactory React.createClass
   displayName: 'post-page'
@@ -36,10 +37,14 @@ module.exports = React.createFactory React.createClass
       if res.ok
         @transitionTo 'topic', topicid: res.body.topic_id
 
+  onTabClick: (tab) ->
+    @setState tab: tab
+
   render: ->
     if @props.user?
       $.div className: 'post-page',
         $.input className: 'title', onChange: @onTitleChange, value: @state.title
+        Select chosen: @state.tab, data: ['share', 'ask', 'job'], onItemClick: @onTabClick
         Editor text: @state.content, onTextChange: @onContentChange
         $.span className: 'button', onClick: @onSubmitClick, 'Submit'
     else

@@ -12,15 +12,15 @@ module.exports = React.createFactory React.createClass
   displayName: 'topic-list'
 
   getInitialState: ->
-    loading: no
+    loading: 'ease'
     topics: []
 
   componentDidMount: ->
-    @setState loading: yes
+    @setState loading: 'busy'
     request
     .get("#{config.host}/topics")
     .end (res) =>
-      @setState loading: no
+      @setState loading: 'easy'
       if res.status is 200
         @setState topics: res.body.data
 
@@ -30,6 +30,5 @@ module.exports = React.createFactory React.createClass
 
   render: ->
     $.div className: 'topic-list',
-      if @state.loading
-        Loading()
+      Loading data: @state.loading
       @renderTitles()
