@@ -4,8 +4,8 @@ React = require 'react'
 $ = React.DOM
 
 module.exports = React.createFactory React.createClass
-  displayName: 'topic-card'
+  displayName: 'topic-page'
 
   render: ->
-    $.div className: 'topic-card',
-      'topic-card'
+    $.div className: 'topic-page',
+      'topic-page'

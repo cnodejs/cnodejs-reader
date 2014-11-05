@@ -5,10 +5,11 @@ request = require 'superagent'
 config = require '../config'
 
 $ = React.DOM
-Cover = require '../module/cover'
+
+Olverlay = require '../module/overlay'
 
 module.exports = React.createFactory React.createClass
-  displayName: 'app-header'
+  displayName: 'app-sidebar'
 
   getInitialState: ->
     openBox: no
@@ -22,34 +23,44 @@ module.exports = React.createFactory React.createClass
   hideBox: ->
     @setState openBox: no
 
+  componentDidMount: ->
+    console.log @props.token
+    if @props.token?
+      @auth @props.token
+
   checkToken: (event) ->
     token = @refs.token.getDOMNode().value
+    @auth token
+
+  auth: (token) ->
     request
     .post "#{config.host}/accesstoken"
     .send accesstoken: token
     .end (res) =>
       if res.ok
-        console.log res.body
+        @props.login res.body.loginname, token
+
+  onTokenKeydown: (event) ->
+    if event.keyCode is 13
+      @checkToken()
 
   render: ->
-    if @props.logined
-      $.div className: 'app-header',
+    if @props.user?
+      $.div className: 'app-sidebar',
         $.div className: 'username', @props.user
         $.div
           className: 'button'
           onClick: @logout
           'Logout'
     else
-      $.div className: 'app-header',
-        $.div
-          className: 'button'
-          onClick: @openLogin
-          'Login'
+      $.div className: 'app-sidebar',
+        $.div className: 'button', onClick: @openLogin, 'Login'
         if @state.openBox
-          Cover {},
+          Olverlay onRemove: @hideBox,
             $.div className: 'line', 'Copy your token from CNode:'
             $.input ref: 'token', className: 'token', placeholder: 'Paste token'
             $.div
               className: 'button'
               onClick: @checkToken
+              onKeyDown: @onTokenKeydown
               'Submit'

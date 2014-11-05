@@ -1,5 +1,5 @@
 
-.module-cover {
+.module-overlay {
     position: fixed;
     background: rgba(113, 50, 50, 0.5);
     z-index: 100;
@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-.module-cover > .card {
+.module-overlay > .card {
     background-color: white;
     padding: 1em 2em;
     border-radius: 1em;
