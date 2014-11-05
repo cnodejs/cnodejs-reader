@@ -1,4 +1,7 @@
 
+@import url('topic-card.css');
 @import url('user-card.css');
 
-.topic-page {}
+.topic-page {
+    overflow-y: auto;
+}

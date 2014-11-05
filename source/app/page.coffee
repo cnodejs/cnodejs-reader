@@ -30,4 +30,4 @@ module.exports = React.createFactory React.createClass
         token: @state.token
         login: @login
         logout: @logout
-      @props.activeRouteHandler user: @state.user
+      @props.activeRouteHandler user: @state.user, token: @state.token

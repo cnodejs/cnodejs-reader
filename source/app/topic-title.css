@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: row;
     padding: 10px 20px;
-    cursor: pointer;
 }
 
 .topic-title .title {
@@ -13,6 +12,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: pointer;
 }
 
 .topic-title .avatar {
@@ -20,4 +20,5 @@
     height: 40px;
     background-size: cover;
     margin-right: 10px;
+    cursor: pointer;
 }

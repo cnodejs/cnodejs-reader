@@ -9,8 +9,11 @@ module.exports = React.createFactory React.createClass
   displayName: 'user-card'
   mixins: [Navigation]
 
+  onClick: ->
+    @transitionTo 'user', userid: @props.data.loginname
+
   render: ->
-    $.div className: 'user-card',
+    $.span className: 'user-card', onClick: @onClick,
       $.span
         className: 'avatar'
         style:

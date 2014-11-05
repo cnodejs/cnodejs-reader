@@ -49,12 +49,14 @@ module.exports = React.createFactory React.createClass
   onHomeClick: ->
     @transitionTo '/'
 
+  onPostClick: ->
+    @transitionTo 'post'
+
   render: ->
     $.div className: 'app-sidebar',
-      $.div
-        className: 'home',
-        onClick: @onHomeClick
-        'Home'
+      $.nav className: 'nav',
+        $.div className: 'home', onClick: @onHomeClick, 'Home'
+        $.div className: 'post', onClick: @onPostClick, 'Post'
       if @props.user?
         $.div className: 'bottom',
           $.span className: 'username', @props.user

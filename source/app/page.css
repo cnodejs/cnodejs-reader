@@ -19,6 +19,7 @@
 }
 
 .app-page .topic-list,
+.app-page .user-page,
 .app-page .topic-page {
     flex: 1;
 }

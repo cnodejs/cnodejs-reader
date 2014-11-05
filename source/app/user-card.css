@@ -1,5 +1,7 @@
 
-.user-card {}
+.user-card {
+    cursor: pointer;
+}
 
 .user-card .name {}
 

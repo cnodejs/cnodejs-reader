@@ -13,13 +13,19 @@ module.exports = React.createFactory React.createClass
   onTopicClick: ->
     @transitionTo 'topic', topicid: @props.data.id
 
+  onAvatarClick: ->
+    @transitionTo 'user', userid: @props.data.author.loginname
+
   render: ->
     $.div
       className: 'topic-title'
-      onClick: @onTopicClick
       $.div
         className: 'avatar'
         title: @props.data.author.loginname
+        onClick: @onAvatarClick
         style:
           backgroundImage: "url('#{@props.data.author.avatar_url}')"
-      $.span className: 'title', @props.data.title
+      $.span
+        className: 'title'
+        onClick: @onTopicClick
+        @props.data.title
