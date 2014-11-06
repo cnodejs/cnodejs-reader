@@ -3,4 +3,23 @@
     height: 40px;
     line-height: 40px;
     color: rgb(195, 197, 244);
+    font-family: 'Apple Chancery';
+}
+
+.module-loading > * {
+  animation: loading 1.2s infinite;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+@keyframes loading {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.8);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

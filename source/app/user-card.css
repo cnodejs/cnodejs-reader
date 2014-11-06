@@ -1,9 +1,16 @@
 
 .user-card {
     cursor: pointer;
+    display: inline-block;
 }
 
-.user-card .name {}
+.user-card .name {
+    color: white;
+    background: rgb(215, 195, 219);
+    padding: 2px 0.5em;
+    border-radius: 20px;
+    vertical-align: middle;
+}
 
 .user-card .avatar {
     width: 30px;

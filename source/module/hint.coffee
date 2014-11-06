@@ -7,7 +7,8 @@ module.exports = React.createFactory React.createClass
   displayName: 'module-hint'
 
   propTypes:
-    mode: React.PropTypes.string # 'error', 'warning', 'empty', 'success'
+    mode: React.PropTypes.string
+    # 'error', 'warning', 'empty', 'success', 'info'
     data: React.PropTypes.string
 
   render: ->

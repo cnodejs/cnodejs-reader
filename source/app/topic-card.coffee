@@ -8,10 +8,10 @@ module.exports = React.createFactory React.createClass
   displayName: 'topic-card'
 
   render: ->
-    $.div className: 'topic-card',
+    $.div className: 'topic-card pad',
       $.div className: 'title', @props.data.title
       UserCard data: @props.data.author
       $.div
-        className: 'content',
+        className: 'content article-preview',
         dangerouslySetInnerHTML:
           __html: @props.data.content

@@ -5,7 +5,7 @@ body {
 
 body * {
   box-sizing: border-box;
-  box-shadow: 0 0 1px rgb(255, 255, 255);
+  /* box-shadow: 0 0 1px rgb(255, 255, 255); */
 }
 
 body, input, textarea {
@@ -39,4 +39,8 @@ input, textarea {
 
 .paragraph > * + * {
   margin-top: 0.5em;
+}
+
+.divide > * + * {
+  border-top: 1px solid rgb(223, 223, 223);
 }

@@ -3,10 +3,12 @@
 
 .module-editor .text {}
 
+.article-preview,
 .module-editor .preview {
     line-height: 1.6em;
 }
 
+.article-preview pre,
 .module-editor .preview pre {
     background-color: rgb(105, 29, 104);
     color: white;
@@ -14,13 +16,22 @@
     padding: 1em 1em;
 }
 
+.article-preview pre code,
 .module-editor .preview pre code {
     font-family: Menlo;
     font-size: 14px;
     line-height: 1.6em;
 }
 
+.article-preview img,
 .module-editor .preview img {
-    max-width: 80%%;
+    max-width: 80%;
     box-shadow: 0 0 4px gray;
+    display: block;
+    margin: 1em 0;
+}
+
+.article-preview a,
+.module-editor .preview a {
+    text-decoration: none;
 }

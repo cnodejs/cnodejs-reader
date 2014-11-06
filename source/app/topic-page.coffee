@@ -57,13 +57,15 @@ module.exports = React.createFactory React.createClass
   render: ->
     $.div className: 'topic-page',
       if @state.data?
-        $.div className: 'wrap',
+        $.div className: 'wrap divide',
           TopicCard data: @state.data
           @renderComments @state.data.replies
-      if @props.user? and @state.data?
-        $.div className: 'reply',
-          Editor text: @state.reply, onTextChange: @onReplyChange
-          if @state.error?
-            Hint mode: 'error', data: @state.error
-          $.div className: 'button', onClick: @onReplySubmit, 'Reply'
+          if @props.user?
+            $.div className: 'reply',
+              Editor text: @state.reply, onTextChange: @onReplyChange
+              if @state.error?
+                Hint mode: 'error', data: @state.error
+              $.div className: 'button', onClick: @onReplySubmit, 'Reply'
+          else
+            Hint mode: 'info', data: 'Login to reply'
       Loading data: @state.loading

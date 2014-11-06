@@ -16,10 +16,16 @@ module.exports = React.createFactory React.createClass
     data: null
     loading: 'ease'
 
+  componentWillReceiveProps: (props, state) ->
+    @loadUser props.params.userid
+
   componentDidMount: ->
-    @setState loading: 'busy'
+    @loadUser @props.params.userid
+
+  loadUser: (user) ->
+    @setState loading: 'busy', data: null
     superagent
-    .get "#{config.host}/user/#{@props.params.userid}"
+    .get "#{config.host}/user/#{user}"
     .end (res) =>
       if res.ok
         data = res.body.data
@@ -36,16 +42,18 @@ module.exports = React.createFactory React.createClass
       Loading data: @state.loading
       if @state.data?
         $.div className: 'wrap',
-          $.div className: 'group-profile',
+          $.div className: 'group-profile paragraph',
             UserCard data: @state.data
             if @state.data.githubUsername?
-              $.div className: 'github', 'GitHub:', @state.data.githubUsername
-            $.div className: 'score', 'Scores:', @state.data.score
+              $.div className: 'github',
+                'GitHub: ', @state.data.githubUsername
+            $.div className: 'score',
+              'Scores:', @state.data.score
           if @state.data.recent_topics.length > 0
-            $.div className: 'group-topics',
+            $.div className: 'group-topics divide',
               $.div className: 'section', 'Recent Topics'
               @renderTopics @state.data.recent_topics
           if @state.data.recent_replies.length > 0
-            $.div className: 'group-replies',
+            $.div className: 'group-replies divide',
               $.div className: 'section', 'Recent Replies'
               @renderTopics @state.data.recent_replies

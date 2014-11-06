@@ -3,6 +3,7 @@
 @import url('topic-list.css');
 @import url('topic-page.css');
 @import url('post-page.css');
+@import url('user-page.css');
 
 .app-page {
     position: absolute;
@@ -13,7 +14,7 @@
 }
 
 .app-page .app-sidebar {
-    width: 400px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

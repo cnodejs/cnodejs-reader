@@ -1,3 +1,8 @@
 
 .topic-card {
 }
+
+.topic-card .title {
+    font-size: 30px;
+    line-height: 2em;
+}

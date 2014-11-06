@@ -21,28 +21,32 @@ module.exports = React.createFactory React.createClass
     loading: 'ease'
     topics: []
     page: (Number @props.query.page) or 1
-    tab: if @props.query.tab in tabs then @props.query.tab
+    tab: @props.query.tab or 'all'
 
   componentWillReceiveProps: (props, state) ->
-    tab = props.query.tab
-    page = Number props.query.page
-    @setState {tab, page}
+    tab = props.query.tab or 'all'
+    page = (Number props.query.page) or 1
     @loadTopics {tab, page}
 
   componentDidMount: ->
     @loadTopics tab: @state.tab, page: @state.page
 
   loadTopics: (options) ->
-    @setState loading: 'busy'
+    @setState
+      loading: 'busy'
+      topics: []
+      tab: options.tab
+      page: options.page
     request
     .get "#{config.host}/topics"
     .query page: options.page
     .query limit: 40
     .query tab: options.tab
     .end (res) =>
-      @setState loading: 'easy'
-      if res.status is 200
-        @setState topics: res.body.data
+      if res.ok
+        @setState loading: 'ease', topics: res.body.data
+      else
+        @setState loading: 'ease'
 
   onTabClick: (tab) ->
     @transitionTo '/', {}, tab: tab, page: @state.page
@@ -59,11 +63,11 @@ module.exports = React.createFactory React.createClass
       TopicTitle key: topic.id, data: topic
 
   render: ->
-    $.div className: 'topic-list',
+    $.div className: 'topic-list divide',
       $.div className: 'action',
         Select
           data: ['all'].concat tabs
-          item: 'all'
+          chosen: @state.tab
           onItemClick: @onTabClick
         $.div className: 'line',
           if @state.page > 1

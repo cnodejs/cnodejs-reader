@@ -10,10 +10,11 @@ module.exports = React.createFactory React.createClass
   displayName: 'app-comment'
 
   render: ->
-    $.div className: 'app-comment',
-      UserCard data: @props.data.author
-      Time data: @props.data.create_at
+    $.div className: 'app-comment pad',
+      $.div className: 'line',
+        UserCard data: @props.data.author
+        Time data: @props.data.create_at
       $.div
-        className: 'content',
+        className: 'content article-preview',
         dangerouslySetInnerHTML:
           __html: @props.data.content

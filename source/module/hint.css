@@ -1,6 +1,6 @@
 
 .module-hint {
-    line-height: 2em;
+    line-height: 1.6em;
     font-size: 14px;
     color: white;
     display: inline-block;
@@ -10,10 +10,18 @@
 
 .module-hint.is-empty {}
 
-.module-hint.is-success {}
+.module-hint.is-success {
+    background: blue;
+}
 
 .module-hint.is-error {
     background: red;
 }
 
-.module-hint.is-warning {}
+.module-hint.is-warning {
+    background: yellow;
+}
+
+.module-hint.is-info {
+    background: rgb(171, 192, 175);
+}

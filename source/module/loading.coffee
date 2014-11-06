@@ -9,8 +9,17 @@ module.exports = React.createFactory React.createClass
   propTypes:
     data: React.PropTypes.string # 'ease', 'busy'
 
+  renderLetters: (text) ->
+    text.split('').map (letter, index) =>
+      $.span
+        style:
+          animationDelay: "#{index * 140}ms"
+        letter
+
   render: ->
-    $.div className: 'module-loading',
-      switch @props.data
-        when 'ease' then ''
-        when 'busy' then 'Loading...'
+    switch @props.data
+      when 'ease'
+        $.div className: 'module-loading', ''
+      when 'busy'
+        $.div className: 'module-loading',
+          @renderLetters 'Loading data...'

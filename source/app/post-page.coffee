@@ -54,4 +54,5 @@ module.exports = React.createFactory React.createClass
           Hint mode: 'error', data: @state.error
         $.span className: 'button', onClick: @onSubmitClick, 'Submit'
     else
-      $.div className: 'post-page', 'Login to post'
+      $.div className: 'post-page',
+        Hint mode: 'info', data: 'Login to post'
