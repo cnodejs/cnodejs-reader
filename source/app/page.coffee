@@ -36,7 +36,7 @@ module.exports = React.createFactory React.createClass
     .query accesstoken: @state.token
     .end (res) =>
       if res.ok
-        setTimeout @checkMessages, 6000
+        setTimeout @checkMessages, 60000
         @setState messages: res.body.data.hasnot_read_messages
 
   login: (user, token) ->

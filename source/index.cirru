@@ -14,4 +14,5 @@ html
       @block
         link (:rel stylesheet) (:href build/main.min.css)
         script (:defer) (:src build/main.min.js)
+        @insert source/ga.html
   body

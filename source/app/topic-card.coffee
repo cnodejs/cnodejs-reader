@@ -14,4 +14,4 @@ module.exports = React.createFactory React.createClass
       $.div
         className: 'content article-preview',
         dangerouslySetInnerHTML:
-          __html: @props.data.content
+          __html: @props.data.content.replace(/\n/g, '<br>')
