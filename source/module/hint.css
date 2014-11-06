@@ -10,16 +10,12 @@
 
 .module-hint.is-empty {}
 
-.module-hint.is-success {
-    background: blue;
-}
-
 .module-hint.is-error {
     background: red;
 }
 
-.module-hint.is-warning {
-    background: yellow;
+.module-hint.is-imporant {
+    background: orange;
 }
 
 .module-hint.is-info {

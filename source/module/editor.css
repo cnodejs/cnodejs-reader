@@ -1,7 +1,10 @@
 
 .module-editor {}
 
-.module-editor .text {}
+.module-editor .text {
+    width: 100%;
+    padding: 0.5em;
+}
 
 .article-preview,
 .module-editor .preview {

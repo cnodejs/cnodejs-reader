@@ -8,7 +8,7 @@ module.exports = React.createFactory React.createClass
 
   propTypes:
     mode: React.PropTypes.string
-    # 'error', 'warning', 'empty', 'success', 'info'
+    # 'error', 'empty', 'info', 'imporant'
     data: React.PropTypes.string
 
   render: ->

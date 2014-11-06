@@ -14,7 +14,7 @@ module.exports = React.createFactory React.createClass
 
   render: ->
     $.span className: 'user-card line', onClick: @onClick,
-      $.span
+      if @props.data.avatar_url? then $.span
         className: 'avatar'
         style:
           backgroundImage: "url('#{@props.data.avatar_url}')"

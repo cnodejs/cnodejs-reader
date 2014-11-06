@@ -21,7 +21,7 @@ module.exports = React.createFactory React.createClass
     @props.onTextChange text
 
   render: ->
-    $.div className: 'module-editor',
+    $.div className: 'module-editor paragraph',
       $.textarea className: 'text', onChange: @onTextChange, value: @props.text
       $.div className: 'preview',
         markedReact @props.text

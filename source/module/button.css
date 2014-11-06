@@ -8,3 +8,11 @@
     color: white;
     cursor: pointer;
 }
+
+.button.is-important {
+    background: rgb(255, 194, 83);
+}
+
+.button.is-danger {
+    background: red;
+}

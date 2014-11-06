@@ -2,7 +2,6 @@
 @import url('topic-title.css');
 
 .topic-list {
-    overflow: auto;
 }
 
 .topic-list > .topic-title {}

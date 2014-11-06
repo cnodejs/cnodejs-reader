@@ -3,12 +3,12 @@ React = require 'react'
 request = require 'superagent'
 Router = require 'react-router'
 
-config = require '../config'
-
 $ = React.DOM
 Navigation = Router.Navigation
 
+config = require '../config'
 Olverlay = require '../module/overlay'
+UserCard = require './user-card'
 
 module.exports = React.createFactory React.createClass
   displayName: 'app-sidebar'
@@ -52,14 +52,31 @@ module.exports = React.createFactory React.createClass
   onPostClick: ->
     @transitionTo 'post'
 
+  onBackClick: ->
+    @goBack()
+
+  onMessageClick: ->
+    @transitionTo 'messages'
+
   render: ->
+    n = @props.messages.length
     $.div className: 'app-sidebar',
       $.nav className: 'nav',
-        $.div className: 'home line pad', onClick: @onHomeClick, 'Home'
-        $.div className: 'post line pad', onClick: @onPostClick, 'Post'
+        $.div className: 'line pad',
+          $.span className: 'button', onClick: @onHomeClick, 'Home'
+        $.div className: 'line pad',
+          $.span className: 'button', onClick: @onBackClick, 'Back'
+        $.div className: 'line pad',
+          $.span className: 'button', onClick: @onPostClick, 'Post'
+        if n > 0
+          $.div className: 'line pad',
+            $.span className: 'button is-important', onClick: @onMessageClick, n
       if @props.user?
         $.div className: 'bottom line pad',
-          $.span className: 'username', @props.user
+          UserCard
+            data:
+              loginname: @props.user
+              avatar_url: null
           $.span
             className: 'button'
             onClick: @logout

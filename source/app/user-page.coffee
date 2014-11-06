@@ -5,6 +5,7 @@ superagent = require 'superagent'
 $ = React.DOM
 
 Loading = require '../module/loading'
+Hint = require '../module/hint'
 UserCard = require './user-card'
 config = require '../config'
 TopicTitle = require './topic-title'
@@ -46,9 +47,11 @@ module.exports = React.createFactory React.createClass
             UserCard data: @state.data
             if @state.data.githubUsername?
               $.div className: 'github',
-                'GitHub: ', @state.data.githubUsername
+                'GitHub: '
+                Hint mode: 'info', data: @state.data.githubUsername
             $.div className: 'score',
-              'Scores:', @state.data.score
+              'Scores: '
+              Hint mode: 'info', data: @state.data.score
           if @state.data.recent_topics.length > 0
             $.div className: 'group-topics divide',
               $.div className: 'section', 'Recent Topics'

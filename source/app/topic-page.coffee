@@ -61,7 +61,7 @@ module.exports = React.createFactory React.createClass
           TopicCard data: @state.data
           @renderComments @state.data.replies
           if @props.user?
-            $.div className: 'reply',
+            $.div className: 'reply pad',
               Editor text: @state.reply, onTextChange: @onReplyChange
               if @state.error?
                 Hint mode: 'error', data: @state.error

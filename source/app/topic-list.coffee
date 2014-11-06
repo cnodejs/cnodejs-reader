@@ -26,7 +26,8 @@ module.exports = React.createFactory React.createClass
   componentWillReceiveProps: (props, state) ->
     tab = props.query.tab or 'all'
     page = (Number props.query.page) or 1
-    @loadTopics {tab, page}
+    unless (tab is @state.tab) and (page is @state.page)
+      @loadTopics {tab, page}
 
   componentDidMount: ->
     @loadTopics tab: @state.tab, page: @state.page

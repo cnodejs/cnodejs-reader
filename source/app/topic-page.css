@@ -3,6 +3,6 @@
 @import url('user-card.css');
 @import url('comment.css');
 
-.topic-page {
-    overflow-y: auto;
-}
+.topic-page {}
+
+.topic-page .reply {}
