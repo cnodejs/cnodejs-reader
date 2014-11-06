@@ -9,6 +9,7 @@ config = require '../config'
 Loading = require '../module/loading'
 TopicCard = require './topic-card'
 Editor = require '../module/editor'
+Hint = require '../module/hint'
 Comment = require './comment'
 
 module.exports = React.createFactory React.createClass
@@ -19,6 +20,7 @@ module.exports = React.createFactory React.createClass
     data: undefined
     loading: 'ease'
     reply: ''
+    error: null
 
   componentDidMount: ->
     @loadTopic()
@@ -42,9 +44,11 @@ module.exports = React.createFactory React.createClass
     .end (res) =>
       if res.ok
         @loadTopic()
+      else
+        @setState error: res.body.error_msg
 
   onReplyChange: (text) ->
-    @setState reply: text
+    @setState reply: text, error: null
 
   renderComments: (comments) ->
     comments.map (comment, index) =>
@@ -52,7 +56,6 @@ module.exports = React.createFactory React.createClass
 
   render: ->
     $.div className: 'topic-page',
-      Loading data: @state.loading
       if @state.data?
         $.div className: 'wrap',
           TopicCard data: @state.data
@@ -60,4 +63,7 @@ module.exports = React.createFactory React.createClass
       if @props.user? and @state.data?
         $.div className: 'reply',
           Editor text: @state.reply, onTextChange: @onReplyChange
+          if @state.error?
+            Hint mode: 'error', data: @state.error
           $.div className: 'button', onClick: @onReplySubmit, 'Reply'
+      Loading data: @state.loading

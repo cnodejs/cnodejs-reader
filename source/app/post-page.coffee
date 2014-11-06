@@ -9,6 +9,7 @@ Navigation = Router.Navigation
 Editor = require '../module/editor'
 config = require '../config'
 Select = require '../module/select'
+Hint = require '../module/hint'
 
 module.exports = React.createFactory React.createClass
   displayName: 'post-page'
@@ -18,13 +19,14 @@ module.exports = React.createFactory React.createClass
     tab: 'share'
     title: ''
     content: ''
+    error: null
 
   onTitleChange: (event) ->
     text = event.target.value
-    @setState title: text
+    @setState title: text, error: null
 
   onContentChange: (text) ->
-    @setState content: text
+    @setState content: text, error: null
 
   onSubmitClick: ->
     superagent
@@ -36,16 +38,20 @@ module.exports = React.createFactory React.createClass
     .end (res) =>
       if res.ok
         @transitionTo 'topic', topicid: res.body.topic_id
+      else
+        @setState error: res.body.error_msg
 
   onTabClick: (tab) ->
     @setState tab: tab
 
   render: ->
     if @props.user?
-      $.div className: 'post-page',
-        $.input className: 'title', onChange: @onTitleChange, value: @state.title
+      $.div className: 'post-page paragraph',
         Select chosen: @state.tab, data: ['share', 'ask', 'job'], onItemClick: @onTabClick
+        $.input className: 'title', onChange: @onTitleChange, value: @state.title
         Editor text: @state.content, onTextChange: @onContentChange
+        if @state.error?
+          Hint mode: 'error', data: @state.error
         $.span className: 'button', onClick: @onSubmitClick, 'Submit'
     else
       $.div className: 'post-page', 'Login to post'

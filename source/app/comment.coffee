@@ -4,6 +4,7 @@ React = require 'react'
 $ = React.DOM
 
 UserCard = require './user-card'
+Time = require '../module/time'
 
 module.exports = React.createFactory React.createClass
   displayName: 'app-comment'
@@ -11,7 +12,7 @@ module.exports = React.createFactory React.createClass
   render: ->
     $.div className: 'app-comment',
       UserCard data: @props.data.author
-      $.span className: 'time', @props.data.create_at
+      Time data: @props.data.create_at
       $.div
         className: 'content',
         dangerouslySetInnerHTML:

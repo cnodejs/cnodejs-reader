@@ -1,4 +1,5 @@
 
+@import url('base.css');
 @import url('app/page.css');
 
 @import url('module/overlay.css');
@@ -6,20 +7,5 @@
 @import url('module/editor.css');
 @import url('module/select.css');
 @import url('module/loading.css');
-
-body {
-  margin: 0;
-  font-family: Optima;
-}
-
-body * {
-  box-sizing: border-box;
-  box-shadow: 0 0 1px rgb(250, 250, 250);
-}
-
-input, textarea {
-  line-height: 2em;
-  font-size: 14px;
-  outline: none;
-  padding: 0 1em;
-}
+@import url('module/hint.css');
+@import url('module/time.css');

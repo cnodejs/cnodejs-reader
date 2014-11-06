@@ -1,0 +1,19 @@
+
+.module-hint {
+    line-height: 2em;
+    font-size: 14px;
+    color: white;
+    display: inline-block;
+    padding: 0 10px;
+    border-radius: 14px;
+}
+
+.module-hint.is-empty {}
+
+.module-hint.is-success {}
+
+.module-hint.is-error {
+    background: red;
+}
+
+.module-hint.is-warning {}

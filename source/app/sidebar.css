@@ -2,6 +2,13 @@
 .app-sidebar {
 }
 
+.app-sidebar > .nav {}
+
+.app-sidebar > .nav .line {
+    font-size: 16px;
+    line-height: 2em;
+}
+
 .app-sidebar .home {
     cursor: pointer;
 }

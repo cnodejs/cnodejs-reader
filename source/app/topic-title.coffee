@@ -4,6 +4,7 @@ Router = require 'react-router'
 
 $ = React.DOM
 Navigation = Router.Navigation
+Time = require '../module/time'
 
 module.exports = React.createFactory React.createClass
   displayName: 'topic-title'
@@ -18,7 +19,7 @@ module.exports = React.createFactory React.createClass
 
   render: ->
     $.div
-      className: 'topic-title'
+      className: 'topic-title line'
       $.div
         className: 'avatar'
         title: @props.data.author.loginname
@@ -29,3 +30,4 @@ module.exports = React.createFactory React.createClass
         className: 'title'
         onClick: @onTopicClick
         @props.data.title
+      Time data: @props.data.last_reply_at

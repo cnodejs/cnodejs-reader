@@ -2,6 +2,7 @@
 @import url('sidebar.css');
 @import url('topic-list.css');
 @import url('topic-page.css');
+@import url('post-page.css');
 
 .app-page {
     position: absolute;
@@ -20,6 +21,8 @@
 
 .app-page .topic-list,
 .app-page .user-page,
-.app-page .topic-page {
+.app-page .topic-page,
+.app-page .post-page {
     flex: 1;
+    padding: 1em 2em 400px 0.5em;
 }

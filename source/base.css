@@ -1,0 +1,42 @@
+
+body {
+  margin: 0;
+}
+
+body * {
+  box-sizing: border-box;
+  box-shadow: 0 0 1px rgb(255, 255, 255);
+}
+
+body, input, textarea {
+  font-family: Optima;
+}
+
+input, textarea {
+  line-height: 1.6;
+  font-size: 14px;
+  padding: 0.5em;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 1px gray;
+}
+
+.line {
+  display: block;
+}
+
+.pad {
+  padding: 0.5em;
+}
+
+.line > * + * {
+  margin-left: 0.5em;
+}
+
+.paragraph > * {
+  display: block;
+}
+
+.paragraph > * + * {
+  margin-top: 0.5em;
+}

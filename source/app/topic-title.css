@@ -2,7 +2,8 @@
 .topic-title {
     display: flex;
     flex-direction: row;
-    padding: 10px 20px;
+    padding: 0.5em;
+    align-items: center;
 }
 
 .topic-title .title {

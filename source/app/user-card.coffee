@@ -13,7 +13,7 @@ module.exports = React.createFactory React.createClass
     @transitionTo 'user', userid: @props.data.loginname
 
   render: ->
-    $.span className: 'user-card', onClick: @onClick,
+    $.span className: 'user-card line', onClick: @onClick,
       $.span
         className: 'avatar'
         style:

@@ -1,10 +1,18 @@
 
 @import url('topic-title.css');
 
-.topic-list {}
+.topic-list {
+    overflow: auto;
+}
 
 .topic-list > .topic-title {}
 
 .topic-list > .topic-title + .topic-title {
     border-top: 1px solid rgb(228, 228, 228);
+}
+
+.topic-list .action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

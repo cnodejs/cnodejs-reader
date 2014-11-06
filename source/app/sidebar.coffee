@@ -55,24 +55,25 @@ module.exports = React.createFactory React.createClass
   render: ->
     $.div className: 'app-sidebar',
       $.nav className: 'nav',
-        $.div className: 'home', onClick: @onHomeClick, 'Home'
-        $.div className: 'post', onClick: @onPostClick, 'Post'
+        $.div className: 'home line pad', onClick: @onHomeClick, 'Home'
+        $.div className: 'post line pad', onClick: @onPostClick, 'Post'
       if @props.user?
-        $.div className: 'bottom',
+        $.div className: 'bottom line pad',
           $.span className: 'username', @props.user
           $.span
             className: 'button'
             onClick: @logout
             'Logout'
       else
-        $.div className: 'account',
+        $.div className: 'account pad',
           $.div className: 'button', onClick: @openLogin, 'Login'
           if @state.openBox
             Olverlay onRemove: @hideBox,
               $.div className: 'line', 'Copy your token from CNode:'
-              $.input ref: 'token', className: 'token', placeholder: 'Paste token'
-              $.div
-                className: 'button'
-                onClick: @checkToken
-                onKeyDown: @onTokenKeydown
-                'Submit'
+              $.div className: 'line',
+                $.input ref: 'token', className: 'token', placeholder: 'Paste token'
+                $.div
+                  className: 'button'
+                  onClick: @checkToken
+                  onKeyDown: @onTokenKeydown
+                  'Submit'

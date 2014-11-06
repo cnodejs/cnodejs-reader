@@ -21,5 +21,5 @@ module.exports = React.createFactory React.createClass
     $.div
       className: 'module-overlay',
       onClick: @onOverlayClick
-      $.div className: 'card',
+      $.div className: 'card paragraph',
         @props.children

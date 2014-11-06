@@ -1,0 +1,12 @@
+
+.post-page {}
+
+.post-page input.title {
+    width: 100%;
+}
+
+.post-page textarea.text {
+    width: 100%;
+    min-height: 200px;
+    padding: 0.5em;
+}

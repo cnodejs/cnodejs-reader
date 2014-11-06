@@ -3,4 +3,24 @@
 
 .module-editor .text {}
 
-.module-editor .preview {}
+.module-editor .preview {
+    line-height: 1.6em;
+}
+
+.module-editor .preview pre {
+    background-color: rgb(105, 29, 104);
+    color: white;
+    margin: 0 -1em;
+    padding: 1em 1em;
+}
+
+.module-editor .preview pre code {
+    font-family: Menlo;
+    font-size: 14px;
+    line-height: 1.6em;
+}
+
+.module-editor .preview img {
+    max-width: 80%%;
+    box-shadow: 0 0 4px gray;
+}

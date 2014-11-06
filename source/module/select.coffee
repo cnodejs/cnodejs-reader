@@ -9,6 +9,7 @@ module.exports = React.createFactory React.createClass
 
   propTypes:
     item: React.PropTypes.string
+    data: React.PropTypes.array
     onItemClick: React.PropTypes.func
 
   renderItems: (items) ->
@@ -21,5 +22,5 @@ module.exports = React.createFactory React.createClass
         item
 
   render: ->
-    $.div className: 'module-select',
+    $.div className: 'module-select line',
       @renderItems @props.data
