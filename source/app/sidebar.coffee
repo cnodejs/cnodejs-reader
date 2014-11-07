@@ -40,7 +40,7 @@ module.exports = React.createFactory React.createClass
     .send accesstoken: token
     .end (res) =>
       if res.ok
-        @props.login res.body.loginname, token
+        @props.login res.body.loginname, token, res.body.avatar_url
 
   onTokenKeydown: (event) ->
     if event.keyCode is 13
@@ -76,7 +76,7 @@ module.exports = React.createFactory React.createClass
           UserCard
             data:
               loginname: @props.user
-              avatar_url: null
+              avatar_url: @props.avatar
           $.span
             className: 'button'
             onClick: @logout

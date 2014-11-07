@@ -14,6 +14,7 @@ module.exports = React.createFactory React.createClass
   getInitialState: ->
     token: localStorage.getItem(key)
     user: null
+    avatar: null
     view: 'topics' # 'topic', 'user', 'edit'
     id: null
     messages: []
@@ -39,13 +40,13 @@ module.exports = React.createFactory React.createClass
         setTimeout @checkMessages, 60000
         @setState messages: res.body.data.hasnot_read_messages
 
-  login: (user, token) ->
-    @setState {token, user}
+  login: (user, token, avatar) ->
+    @setState {token, user, avatar}
     @checkMessages()
     localStorage.setItem key, token
 
   logout: ->
-    @setState token: null, user: null
+    @setState token: null, user: null, avatar: null
     localStorage.setItem key, null
 
   render: ->
@@ -54,6 +55,7 @@ module.exports = React.createFactory React.createClass
       Sidebar
         user: @state.user
         token: @state.token
+        avatar: @state.avatar
         login: @login
         logout: @logout
         messages: @state.messages
