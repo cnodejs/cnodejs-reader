@@ -1,8 +1,13 @@
 
 React = require 'react'
+markedReact = require 'marked'
 
 $ = React.DOM
 UserCard = require './user-card'
+
+markedReact.setOptions
+  gfm: yes
+  breaks: yes
 
 module.exports = React.createFactory React.createClass
   displayName: 'topic-card'
@@ -13,5 +18,4 @@ module.exports = React.createFactory React.createClass
       UserCard data: @props.data.author
       $.div
         className: 'content article-preview',
-        dangerouslySetInnerHTML:
-          __html: @props.data.content
+        markedReact @props.data.content

@@ -29,6 +29,7 @@ module.exports = React.createFactory React.createClass
     @setState loading: 'busy'
     superagent
     .get "#{config.host}/topic/#{@props.params.topicid}"
+    .query mdrender: no
     .end (res) =>
       if res.ok
         data = res.body.data
