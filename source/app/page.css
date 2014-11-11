@@ -29,4 +29,5 @@
     flex: 1;
     padding: 1em 2em 400px 0.5em;
     overflow: auto;
+    background-color: white;
 }

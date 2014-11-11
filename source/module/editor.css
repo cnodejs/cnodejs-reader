@@ -6,6 +6,10 @@
     padding: 0.5em;
 }
 
+.module-editor .preview {
+    margin: 0 0.5em;
+}
+
 .article-preview,
 .module-editor .preview {
     line-height: 1.6em;
@@ -17,6 +21,7 @@
     color: white;
     margin: 0 -1em;
     padding: 1em 1em;
+    overflow-x: auto;
 }
 
 .article-preview pre code,
@@ -37,4 +42,13 @@
 .article-preview a,
 .module-editor .preview a {
     text-decoration: none;
+}
+
+
+.article-preview p code,
+.module-editor .preview p cpde {
+    background-color: rgb(181, 108, 186);
+    color: white;
+    padding: 4px 6px;
+    border-radius: 4px;
 }

@@ -16,9 +16,9 @@ module.exports = React.createFactory React.createClass
 
   render: ->
     $.div className: 'app-comment pad',
-      $.div className: 'line',
-        UserCard data: @props.data.author
-        Time data: @props.data.create_at
       $.div
         className: 'content article-preview',
         markedReact @props.data.content
+      $.div className: 'line author',
+        UserCard data: @props.data.author
+        Time data: @props.data.create_at

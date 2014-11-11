@@ -31,7 +31,6 @@ module.exports = React.createFactory React.createClass
         @setState messages: []
 
   checkMessages: ->
-    console.log @state
     superagent
     .get "#{config.host}/messages"
     .query accesstoken: @state.token

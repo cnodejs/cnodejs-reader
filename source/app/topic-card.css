@@ -2,7 +2,17 @@
 .topic-card {
 }
 
+.topic-card .nav-tab {
+    cursor: pointer;
+}
+
+.topic-card .author {
+    text-align: right;
+    margin-top: 1em;
+}
+
 .topic-card .title {
     font-size: 30px;
     line-height: 2em;
+    font-weight: bold;
 }

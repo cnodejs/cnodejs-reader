@@ -26,7 +26,8 @@ module.exports = React.createFactory React.createClass
         onClick: @onAvatarClick
         style:
           backgroundImage: "url('#{@props.data.author.avatar_url}')"
-      $.span
+      $.a
+        href: "#/topic/#{@props.data.id}"
         className: 'title'
         onClick: @onTopicClick
         @props.data.title

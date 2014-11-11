@@ -1,3 +1,7 @@
 
 .app-comment {
 }
+
+.app-comment .author {
+    text-align: right;
+}

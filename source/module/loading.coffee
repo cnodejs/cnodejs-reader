@@ -12,6 +12,7 @@ module.exports = React.createFactory React.createClass
   renderLetters: (text) ->
     text.split('').map (letter, index) =>
       $.span
+        key: index
         style:
           animationDelay: "#{index * 140}ms"
         letter

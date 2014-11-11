@@ -1,6 +1,7 @@
 
 body {
   margin: 0;
+  background: rgb(245, 245, 245);
 }
 
 body * {
@@ -10,15 +11,21 @@ body * {
 
 body, input, textarea {
   font-family: Optima;
+  font-size: 16px;
 }
 
 input, textarea {
   line-height: 1.6;
-  font-size: 14px;
+  font-size: 16px;
   padding: 0.5em;
   border: none;
   outline: none;
   box-shadow: 0 0 1px gray;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 200px;
 }
 
 .line {
