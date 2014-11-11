@@ -63,11 +63,11 @@ module.exports = React.createFactory React.createClass
     $.div className: 'app-sidebar',
       $.nav className: 'nav',
         $.div className: 'line pad',
-          $.span className: 'button', onClick: @onHomeClick, 'Home'
+          $.span className: 'button', onClick: @onHomeClick, '主页'
         $.div className: 'line pad',
-          $.span className: 'button', onClick: @onBackClick, 'Back'
+          $.span className: 'button', onClick: @onBackClick, '后退'
         $.div className: 'line pad',
-          $.span className: 'button', onClick: @onPostClick, 'Post'
+          $.span className: 'button', onClick: @onPostClick, '发布'
         if n > 0
           $.div className: 'line pad',
             $.span className: 'button is-important', onClick: @onMessageClick, n
@@ -80,17 +80,17 @@ module.exports = React.createFactory React.createClass
           $.span
             className: 'button'
             onClick: @logout
-            'Logout'
+            '登出'
       else
         $.div className: 'account pad',
-          $.div className: 'button', onClick: @openLogin, 'Login'
+          $.div className: 'button', onClick: @openLogin, '登录'
           if @state.openBox
             Olverlay onRemove: @hideBox,
-              $.div className: 'line', 'Copy your token from CNode:'
+              $.div className: 'line', '使用 CNode 的 token 验证:'
               $.div className: 'line',
-                $.input ref: 'token', className: 'token', placeholder: 'Paste token'
+                $.input ref: 'token', className: 'token', placeholder: '粘贴 token'
                 $.div
                   className: 'button'
                   onClick: @checkToken
                   onKeyDown: @onTokenKeydown
-                  'Submit'
+                  '提交'

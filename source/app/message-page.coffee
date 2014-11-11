@@ -28,7 +28,10 @@ module.exports = React.createFactory React.createClass
   render: ->
     $.div className: 'message-page divide',
       @renderMessages @props.messages
-      $.div
-        className: 'button is-danger'
-        onClick: @onClearClick
-        "Clear unread"
+      if @props.messages.length > 0
+        $.div
+          className: 'button is-danger'
+          onClick: @onClearClick
+          "清除未读"
+      else
+        Hint mode: 'info', data: '没有未读消息'

@@ -3,6 +3,10 @@
 }
 
 .topic-card .nav-tab {
+    text-align: right;
+}
+
+.topic-card .nav-tab a {
     cursor: pointer;
 }
 

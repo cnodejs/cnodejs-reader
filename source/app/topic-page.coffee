@@ -66,7 +66,7 @@ module.exports = React.createFactory React.createClass
               Editor text: @state.reply, onTextChange: @onReplyChange
               if @state.error?
                 Hint mode: 'error', data: @state.error
-              $.div className: 'button', onClick: @onReplySubmit, 'Reply'
+              $.div className: 'button', onClick: @onReplySubmit, '回复'
           else
-            Hint mode: 'info', data: 'Login to reply'
+            Hint mode: 'info', data: '登录后才能回复'
       Loading data: @state.loading

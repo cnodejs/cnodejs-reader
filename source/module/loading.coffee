@@ -23,4 +23,4 @@ module.exports = React.createFactory React.createClass
         $.div className: 'module-loading', ''
       when 'busy'
         $.div className: 'module-loading',
-          @renderLetters 'Loading data...'
+          @renderLetters '正在加载...'

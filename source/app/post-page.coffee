@@ -47,12 +47,16 @@ module.exports = React.createFactory React.createClass
   render: ->
     if @props.user?
       $.div className: 'post-page paragraph',
-        Select chosen: @state.tab, data: ['share', 'ask', 'job'], onItemClick: @onTabClick
+        Select
+          chosen: @state.tab
+          data: ['share', 'ask', 'job']
+          onItemClick: @onTabClick
+          locale: config.tabLocale
         $.input className: 'title', onChange: @onTitleChange, value: @state.title
         Editor text: @state.content, onTextChange: @onContentChange
         if @state.error?
           Hint mode: 'error', data: @state.error
-        $.span className: 'button', onClick: @onSubmitClick, 'Submit'
+        $.span className: 'button', onClick: @onSubmitClick, '提交'
     else
       $.div className: 'post-page',
-        Hint mode: 'info', data: 'Login to post'
+        Hint mode: 'info', data: '登录以后才能发布文章'

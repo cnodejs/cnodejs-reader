@@ -70,6 +70,7 @@ module.exports = React.createFactory React.createClass
           data: ['all'].concat tabs
           chosen: @state.tab
           onItemClick: @onTabClick
+          locale: config.tabLocale
         $.div className: 'line',
           if @state.page > 1
             $.span className: 'button prev-page', onClick: @prevPage, '<'

@@ -6,6 +6,7 @@ $ = React.DOM
 
 Loading = require '../module/loading'
 Hint = require '../module/hint'
+Time = require '../module/time'
 UserCard = require './user-card'
 config = require '../config'
 TopicTitle = require './topic-title'
@@ -50,13 +51,16 @@ module.exports = React.createFactory React.createClass
                 'GitHub: '
                 Hint mode: 'info', data: @state.data.githubUsername
             $.div className: 'score',
-              'Scores: '
+              '积分: '
               Hint mode: 'info', data: @state.data.score
+            $.div className: 'join',
+              '加入时间: '
+              Time data: @state.data.create_at
           if @state.data.recent_topics.length > 0
             $.div className: 'group-topics divide',
-              $.div className: 'section', 'Recent Topics'
+              $.div className: 'section', '最近话题'
               @renderTopics @state.data.recent_topics
           if @state.data.recent_replies.length > 0
             $.div className: 'group-replies divide',
-              $.div className: 'section', 'Recent Replies'
+              $.div className: 'section', '最近回复'
               @renderTopics @state.data.recent_replies
