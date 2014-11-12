@@ -46,9 +46,13 @@
 
 
 .article-preview p code,
-.module-editor .preview p cpde {
-    background-color: rgb(181, 108, 186);
+.module-editor .preview p code {
+    background-color: rgb(105, 29, 104);
     color: white;
-    padding: 4px 6px;
-    border-radius: 4px;
+    border-radius: 1px;
+    font-size: 14px;
+    line-height: 1.6em;
+    display: inline-block;
+    padding: 0 0.5em;
+    font-family: Menlo;
 }
