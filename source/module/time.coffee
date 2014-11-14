@@ -13,7 +13,7 @@ module.exports = React.createFactory React.createClass
   formatTime: ->
     now = new Date
     ny = now.getFullYear()
-    nM = now.getMonth()
+    nM = now.getMonth() + 1
     nd = now.getDate()
     date = new Date @props.data
     y = date.getFullYear()

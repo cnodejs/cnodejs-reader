@@ -6,10 +6,6 @@
     text-align: right;
 }
 
-.topic-card .nav-tab a {
-    cursor: pointer;
-}
-
 .topic-card .author {
     text-align: right;
     margin-top: 1em;
@@ -19,4 +15,8 @@
     font-size: 30px;
     line-height: 2em;
     font-weight: bold;
+}
+
+.topic-card .title a {
+    cursor: pointer;
 }
