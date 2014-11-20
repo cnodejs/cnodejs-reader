@@ -20,17 +20,10 @@ module.exports = React.createFactory React.createClass
   getInitialState: ->
     loading: 'ease'
     topics: []
-    page: (Number @props.query.page) or 1
-    tab: @props.query.tab or 'all'
-
-  componentWillReceiveProps: (props, state) ->
-    tab = props.query.tab or 'all'
-    page = (Number props.query.page) or 1
-    unless (tab is @state.tab) and (page is @state.page)
-      @loadTopics {tab, page}
+    page: 1
 
   componentDidMount: ->
-    @loadTopics tab: @state.tab, page: @state.page
+    @loadTopics tab: 'all', page: 1
 
   loadTopics: (options) ->
     @setState
@@ -41,7 +34,7 @@ module.exports = React.createFactory React.createClass
     request
     .get "#{config.host}/topics"
     .query page: options.page
-    .query limit: 40
+    .query limit: 200
     .query tab: options.tab
     .end (res) =>
       if res.ok
@@ -49,15 +42,23 @@ module.exports = React.createFactory React.createClass
       else
         @setState loading: 'ease'
 
+  delayAndLoadTopic: ->
+    setTimeout =>
+      @loadTopics tab: @state.tab, page: @state.page
+    , 100
+
   onTabClick: (tab) ->
-    @transitionTo '/', {}, tab: tab, page: @state.page
+    @setState tab: tab, page: @state.page
+    @delayAndLoadTopic()
 
   nextPage: ->
-    @transitionTo '/', {}, tab: @state.tab, page: (@state.page + 1)
+    @setState page: (@state.page + 1)
+    @delayAndLoadTopic()
 
   prevPage: ->
     if @state.page > 1
-      @transitionTo '/', {}, tab: @state.tab, page: (@state.page - 1)
+      @setState page: (@state.page - 1)
+      @delayAndLoadTopic()
 
   renderTitles: ->
     @state.topics.map (topic) ->
@@ -71,10 +72,12 @@ module.exports = React.createFactory React.createClass
           chosen: @state.tab
           onItemClick: @onTabClick
           locale: config.tabLocale
-        $.div className: 'line',
-          if @state.page > 1
-            $.span className: 'button prev-page', onClick: @prevPage, '<'
-          $.span className: 'mark page', @state.page
-          $.span className: 'button next-page', onClick: @nextPage, '>'
-      @renderTitles()
-      Loading data: @state.loading
+      if @state.loading is 'ease'
+        @renderTitles()
+      else
+        Loading data: @state.loading
+      $.div className: 'line pager',
+        if @state.page > 1
+          $.span className: 'button prev-page', onClick: @prevPage, '<'
+        $.span className: 'mark page', @state.page
+        $.span className: 'button next-page', onClick: @nextPage, '>'

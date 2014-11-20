@@ -25,6 +25,9 @@ module.exports = React.createFactory React.createClass
   componentDidMount: ->
     @loadTopic()
 
+  componentWillReceiveProps: ->
+    @loadTopic()
+
   loadTopic: ->
     @setState loading: 'busy'
     superagent

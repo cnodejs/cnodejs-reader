@@ -4,10 +4,15 @@
 .topic-list {
 }
 
+.topic-list .pager {
+    padding: 1em;
+}
+
 .topic-list > .topic-title {}
 
 .topic-list .action {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 1em;
 }

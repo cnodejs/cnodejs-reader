@@ -1,15 +1,20 @@
 
 React = require 'react'
+Router = require 'react-router'
 superagent = require 'superagent'
 
-$ = React.DOM
 Sidebar = require './sidebar'
 key = 'cnodejs-reader-token'
 
 config = require '../config'
+TopicList = require './topic-list'
+
+$ = React.DOM
+Navigation = Router.Navigation
 
 module.exports = React.createFactory React.createClass
   displayName: 'app-page'
+  mixins: [Navigation]
 
   getInitialState: ->
     token: localStorage.getItem(key)
@@ -48,9 +53,22 @@ module.exports = React.createFactory React.createClass
     @setState token: null, user: null, avatar: null
     localStorage.setItem key, null
 
+  onClosePop: ->
+    @transitionTo '/'
+
   render: ->
+    handlerComponent = @props.activeRouteHandler
+      user: @state.user
+      token: @state.token
+      messages: @state.messages
+      clearMessages: @clearMessages
 
     $.div className: 'app-page',
+      TopicList
+        user: @state.user
+        token: @state.token
+        messages: @state.messages
+        clearMessages: @clearMessages
       Sidebar
         user: @state.user
         token: @state.token
@@ -59,8 +77,7 @@ module.exports = React.createFactory React.createClass
         logout: @logout
         messages: @state.messages
         clearMessages: @clearMessages
-      @props.activeRouteHandler
-        user: @state.user
-        token: @state.token
-        messages: @state.messages
-        clearMessages: @clearMessages
+      if handlerComponent
+        $.div className: 'cover-page',
+          $.div className: 'close', onClick: @onClosePop, '×'
+          handlerComponent

@@ -2,7 +2,7 @@
 .topic-title {
     display: flex;
     flex-direction: row;
-    padding: 0.5em;
+    padding: 1em;
     align-items: center;
 }
 

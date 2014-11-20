@@ -132,7 +132,7 @@ gulp.task 'clean', (cb) ->
 
 gulp.task 'start', ->
   sequence = require 'run-sequence'
-  sequence 'clean', 'vendor'
+  sequence 'clean', 'vendor', 'dev'
 
 gulp.task 'dev', ->
   sequence = require 'run-sequence'

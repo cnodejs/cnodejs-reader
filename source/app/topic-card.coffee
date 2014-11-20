@@ -20,7 +20,7 @@ module.exports = React.createFactory React.createClass
   mixins: [Navigation]
 
   onTabClick: ->
-    @transitionTo '/', {}, tab: @props.data.tab
+    # disabled
 
   render: ->
     track = "#{@props.data.reply_count} / #{@props.data.visit_count}"
