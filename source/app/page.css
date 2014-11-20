@@ -15,16 +15,15 @@
 }
 
 .app-page .app-sidebar {
-    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .app-page .topic-list {
-    flex: 1;
     padding: 0em 2em 400px 0.5em;
     overflow: auto;   
+    width: 70%;
 }
 .app-page .message-page,
 .app-page .user-page,
@@ -41,18 +40,22 @@
     width: 80%;
     overflow: auto;
     box-shadow: 0px 0 6px rgba(0, 0, 0, 0.25);
-    padding-left: 40px;
+    padding: 40px;
     background: white;
     z-index: 100;
 }
 
-.app-page .cover-page >.close {
+.app-page .cover-page > .close {
     position: fixed;
     top: 10px;
     right: 17px;
-    font-size: 30px;
-    line-height: 30px;
-    color: lightgrey;
+    font-size: 40px;
+    line-height: 35px;
     font-weight: 100;
     cursor: pointer;
+    color: rgb(188, 188, 210);
+}
+
+.app-page .cover-page > .close:hover {
+    color: blue;
 }

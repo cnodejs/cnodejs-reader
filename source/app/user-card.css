@@ -6,10 +6,12 @@
 
 .user-card .name {
     color: white;
-    background: rgb(72, 218, 102);
-    padding: 2px 0.5em;
-    border-radius: 20px;
+    background: rgb(128, 231, 149);
+    padding: 0 20px;
+    border-radius: 2px;
     vertical-align: middle;
+    line-height: 30px;
+    display: inline-block;
 }
 
 .user-card .avatar {

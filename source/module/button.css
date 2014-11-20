@@ -1,12 +1,19 @@
 
 .button {
     display: inline-block;
-    background: rgb(148, 148, 255);
-    line-height: 2em;
-    padding: 0 1em;
-    border-radius: 1em;
-    color: white;
+    line-height: 1.6em;
+    border-radius: 2px;
     cursor: pointer;
+    font-size: 20px;
+    -webkit-font-smoothing: antialiased;
+    background: rgb(186, 164, 240);
+    padding: 0 20px;
+    line-height: 40px;
+    color: white;
+}
+
+.button:hover {
+    background: blue;
 }
 
 .button.is-important {

@@ -12,12 +12,18 @@
 
 .article-preview,
 .module-editor .preview {
-    line-height: 1.6em;
+    line-height: 1.8em;
+    font-size: 18px;
+}
+
+.article-preview,
+.module-editor .preview {
+    margin: 10px 0px;
 }
 
 .article-preview pre,
 .module-editor .preview pre {
-    background-color: rgb(105, 29, 104);
+    background-color: rgb(0, 0, 0);
     color: white;
     margin: 0 -1em;
     padding: 1em 1em;
@@ -34,7 +40,7 @@
 .article-preview img,
 .module-editor .preview img {
     max-width: 80%;
-    box-shadow: 0 0 4px gray;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.43);
     display: block;
     margin: 1em 0;
 }
@@ -47,12 +53,12 @@
 
 .article-preview p code,
 .module-editor .preview p code {
-    background-color: rgb(105, 29, 104);
-    color: white;
+    background-color: rgb(245, 245, 245);
     border-radius: 1px;
     font-size: 14px;
     line-height: 1.6em;
     display: inline-block;
     padding: 0 0.5em;
     font-family: Menlo;
+    color: black;
 }

@@ -1,11 +1,11 @@
 
 .module-hint {
-    line-height: 1.6em;
+    line-height: 30px;
     font-size: 14px;
     color: white;
     display: inline-block;
-    padding: 0 10px;
-    border-radius: 14px;
+    padding: 0 20px;
+    border-radius: 2px;
 }
 
 .module-hint.is-empty {}
@@ -19,5 +19,5 @@
 }
 
 .module-hint.is-info {
-    background: rgb(171, 192, 175);
+    background: rgb(206, 213, 207);
 }

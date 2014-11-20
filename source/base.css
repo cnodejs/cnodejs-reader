@@ -10,8 +10,9 @@ body * {
 }
 
 body, input, textarea {
-  font-family: Optima;
+  font-family: 'Source Han Sans CN';
   font-size: 16px;
+  font-weight: lighter;
 }
 
 input, textarea {
@@ -37,7 +38,7 @@ textarea {
 }
 
 .line > * + * {
-  margin-left: 0.5em;
+  margin-left: 10px;
 }
 
 .paragraph > * {

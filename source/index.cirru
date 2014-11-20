@@ -2,7 +2,7 @@ doctype
 
 html
   head
-    title "CNode.js Reader"
+    title "CNode 单页面"
     meta (:charset utf-8)
     script(:src build/vendor.min.js)
     link (:rel icon)

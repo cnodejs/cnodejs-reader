@@ -43,11 +43,8 @@ module.exports = React.createFactory React.createClass
         @props.login res.body.loginname, token, res.body.avatar_url
 
   onTokenKeydown: (event) ->
-    if event.keyCode is 13
+    if event.keyCode is 13 # enter
       @checkToken()
-
-  onHomeClick: ->
-    @transitionTo '/'
 
   onPostClick: ->
     @transitionTo 'post'
@@ -62,8 +59,6 @@ module.exports = React.createFactory React.createClass
     n = @props.messages.length
     $.div className: 'app-sidebar',
       $.nav className: 'nav',
-        $.div className: 'line pad',
-          $.span className: 'button', onClick: @onHomeClick, '主页'
         $.div className: 'line pad',
           $.span className: 'button', onClick: @onBackClick, '后退'
         $.div className: 'line pad',

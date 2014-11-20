@@ -2,20 +2,25 @@
 .topic-title {
     display: flex;
     flex-direction: row;
-    padding: 1em;
+    padding: 20px;
     align-items: center;
 }
 
+.topic-title:hover {
+    background-color: rgb(242, 242, 242);
+}
+
 .topic-title .title {
-    line-height: 2em;
-    font-size: 18px;
-    max-width: 600px;
+    line-height: 1.6;
+    font-size: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     cursor: pointer;
     text-decoration: none;
     color: black;
+    flex: 1;
+    font-weight: lighter;
 }
 
 .topic-title .title:visited {
@@ -23,9 +28,8 @@
 }
 
 .topic-title .avatar {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     background-size: cover;
-    margin-right: 10px;
     cursor: pointer;
 }

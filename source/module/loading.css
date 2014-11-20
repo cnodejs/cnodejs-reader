@@ -1,24 +1,11 @@
 
 .module-loading {
-    height: 40px;
     line-height: 40px;
     color: rgb(195, 197, 244);
+    font-size: 20px;
+    margin: 0 20px;
 }
 
 .module-loading > * {
-  animation: loading 1.2s infinite;
-  font-size: 14px;
-  letter-spacing: 2px;
-}
-
-@keyframes loading {
-  0% {
-    transform: translate(0,0);
-  }
-  50% {
-    transform: translate(0,3px);
-  }
-  100% {
-    transform: translate(0,0);
-  }
+  letter-spacing: 1px;
 }

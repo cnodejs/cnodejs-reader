@@ -23,20 +23,22 @@ module.exports = React.createFactory React.createClass
     error: null
 
   componentDidMount: ->
-    @loadTopic()
+    @loadTopic @props.params.topicid
 
-  componentWillReceiveProps: ->
-    @loadTopic()
+  componentWillReceiveProps: (props, state) ->
+    if props.params.topicid isnt @props.params.topicid
+      @loadTopic props.params.topicid
 
-  loadTopic: ->
+  loadTopic: (topicid) ->
     @setState loading: 'busy'
     superagent
-    .get "#{config.host}/topic/#{@props.params.topicid}"
+    .get "#{config.host}/topic/#{topicid}"
     .query mdrender: no
     .end (res) =>
       if res.ok
         data = res.body.data
         @setState {data, loading: 'ease', reply: ''}
+        @refs.root.getDOMNode().parentElement.scrollTop = 0
       else
         @setState loading: 'ease', reply: ''
 
@@ -47,7 +49,7 @@ module.exports = React.createFactory React.createClass
     .send content: @state.reply
     .end (res) =>
       if res.ok
-        @loadTopic()
+        @loadTopic @props.params.topicid
       else
         @setState error: res.body.error_msg
 
@@ -59,18 +61,19 @@ module.exports = React.createFactory React.createClass
       Comment key: index, data: comment
 
   render: ->
-    $.div className: 'topic-page',
-      if @state.data?
-        $.div className: 'wrap divide',
+    $.div ref: 'root', className: 'topic-page',
+      if @state.data? and (@state.loading is 'ease')
+        $.div className: 'wrap',
           TopicCard data: @state.data
           @renderComments @state.data.replies
           if @props.user?
             $.div className: 'reply pad paragraph',
               Editor text: @state.reply, onTextChange: @onReplyChange
-              if @state.error?
-                Hint mode: 'error', data: @state.error
-              if @state.loading is 'ease'
-                $.div className: 'button', onClick: @onReplySubmit, '回复'
+              $.div className: 'line',
+                if @state.error?
+                  Hint mode: 'error', data: @state.error
+                if @state.loading is 'ease'
+                  $.div className: 'button', onClick: @onReplySubmit, '回复'
           else
             Hint mode: 'info', data: '登录后才能回复'
       Loading data: @state.loading

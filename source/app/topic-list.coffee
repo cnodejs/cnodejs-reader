@@ -24,6 +24,10 @@ module.exports = React.createFactory React.createClass
 
   componentDidMount: ->
     @loadTopics tab: 'all', page: 1
+    window.addEventListener 'keydown', @onWindowKeydown
+
+  componentWillUnmount: ->
+    window.removeEventListener 'keydown', @onWindowKeydown
 
   loadTopics: (options) ->
     @setState
@@ -49,23 +53,30 @@ module.exports = React.createFactory React.createClass
 
   onTabClick: (tab) ->
     @setState tab: tab, page: @state.page
+    @transitionTo '/'
     @delayAndLoadTopic()
 
   nextPage: ->
     @setState page: (@state.page + 1)
     @delayAndLoadTopic()
+    @transitionTo '/'
 
   prevPage: ->
     if @state.page > 1
       @setState page: (@state.page - 1)
       @delayAndLoadTopic()
+      @transitionTo '/'
+
+  onWindowKeydown: (event) ->
+    if event.keyCode is 27 # esc
+      @transitionTo '/'
 
   renderTitles: ->
     @state.topics.map (topic) ->
       TopicTitle key: topic.id, data: topic
 
   render: ->
-    $.div className: 'topic-list divide',
+    $.div className: 'topic-list',
       $.div className: 'action',
         Select
           data: ['all'].concat tabs
@@ -78,6 +89,6 @@ module.exports = React.createFactory React.createClass
         Loading data: @state.loading
       $.div className: 'line pager',
         if @state.page > 1
-          $.span className: 'button prev-page', onClick: @prevPage, '<'
+          $.span className: 'button prev-page', onClick: @prevPage, '◀'
         $.span className: 'mark page', @state.page
-        $.span className: 'button next-page', onClick: @nextPage, '>'
+        $.span className: 'button next-page', onClick: @nextPage, '▶'

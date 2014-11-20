@@ -57,10 +57,10 @@ module.exports = React.createFactory React.createClass
               '加入时间: '
               Time data: @state.data.create_at
           if @state.data.recent_topics.length > 0
-            $.div className: 'group-topics divide',
+            $.div className: 'group-topics',
               $.div className: 'section', '最近话题'
               @renderTopics @state.data.recent_topics
           if @state.data.recent_replies.length > 0
-            $.div className: 'group-replies divide',
+            $.div className: 'group-replies',
               $.div className: 'section', '最近回复'
               @renderTopics @state.data.recent_replies
