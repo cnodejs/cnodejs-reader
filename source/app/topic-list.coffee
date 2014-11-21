@@ -38,7 +38,7 @@ module.exports = React.createFactory React.createClass
     request
     .get "#{config.host}/topics"
     .query page: options.page
-    .query limit: 200
+    .query limit: 40
     .query tab: options.tab
     .end (res) =>
       if res.ok

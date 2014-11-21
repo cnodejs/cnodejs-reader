@@ -6,10 +6,6 @@
     padding: 0.5em;
 }
 
-.module-editor .preview {
-    margin: 0 0.5em;
-}
-
 .article-preview,
 .module-editor .preview {
     line-height: 1.8em;
@@ -18,7 +14,7 @@
 
 .article-preview,
 .module-editor .preview {
-    margin: 10px 0px;
+    margin: 10px 0.5em;
 }
 
 .article-preview pre,
@@ -61,4 +57,9 @@
     padding: 0 0.5em;
     font-family: Menlo;
     color: black;
+}
+
+.article-preview blockquote,
+.module-editor .preview blockquote {
+    color: gray;
 }
