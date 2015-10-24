@@ -1,18 +1,28 @@
 
 var
-  rx $ require :rx
-  rxDOM $ require :rx-dom
+  reqwest $ require :reqwest
 
 = exports.getList $ \ (cb)
-  ... rx.DOM
-    getJSON :https://cnodejs.org/api/v1/topics
-    subscribe
-      \ (data)
-        cb data.data
-      \ (err)
-        console.log :err err
+  reqwest $ {}
+    :url :https://cnodejs.org/api/v1/topics
+    :type :json
+    :method :get
+    :contentType :application/json
+    :success $ \ (data)
+      cb data.data
+    :error $ \ (error)
+      console.log :error error
 
-= exports.get $ \ (id)
+= exports.get $ \ (id cb)
+  reqwest $ {}
+    :url $ + :https://cnodejs.org/api/v1/topic/ id
+    :type :json
+    :method :get
+    :contentType :application/json
+    :success $ \ (data)
+      cb data.data
+    :error $ \ (error)
+      console.log :error error
 
 = exports.create $ \ ()
 

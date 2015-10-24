@@ -15,7 +15,7 @@ var
   Page $ React.createFactory $ require :./app/page
 
 recorder.setup $ {}
-  :schema schema.store
+  :initial schema.store
   :updater updater
 
 var render $ \ (core)
@@ -24,13 +24,14 @@ var render $ \ (core)
 recorder.request render
 recorder.subscribe render
 
-if module.hot
+if module.hot $ do
   module.hot.accept ([] :./schema :./updater) $ \ ()
     var
       schema $ require :./schema
       updater $ require :./updater
     recorder.hotSetup $ {}
-      :schema schema.store
+      :initial schema.store
       :updater updater
+  module.hot.accept :./controller
 
 controller.start

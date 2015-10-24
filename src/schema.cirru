@@ -9,7 +9,10 @@ var
     :query $ {}
   :user null
   :topics $ []
+  :topicDetails $ {}
   :replies $ []
   :messages $ []
   :device $ {}
     :messageCount 0
+    :isLoading false
+    :loadingKind null

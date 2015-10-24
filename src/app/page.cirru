@@ -5,8 +5,12 @@ var
   Immutable $ require :immutable
 
 var
-  Devtools $ React.createFactory $ require :actions-recorder/lib/devtools
+  routes $ require :../routes
+
+var
   Reader $ React.createFactory $ require :./reader
+  Devtools $ React.createFactory $ require :actions-recorder/lib/devtools
+  Addressbar $ React.createFactory $ require :router-view
 
 var
   ({}~ div) React.DOM
@@ -32,11 +36,14 @@ var
       and
         is (keycode event.keyCode) :a
         , event.shiftKey
-        or event.metaKey event.CtrlKey
+        or event.metaKey event.ctrlKey
       do
         @setState $ {}
           :showDevtools $ not @state.showDevtools
     , undefined
+
+  :onPopstate $ \ (info)
+    console.log :onPopstate info
 
   :renderDevtools $ \ ()
     div ({} (:style $ @styleDevtools))
@@ -46,10 +53,18 @@ var
         :height window.innerHeight
 
   :render $ \ ()
+    var
+      store $ @props.core.get :store
     div ({} (:style $ @styleRoot))
-      Reader $ {} (:store $ @props.core.get :store)
+      Reader $ {} (:store store)
       cond @state.showDevtools
         @renderDevtools
+      Addressbar $ {}
+        :route $ store.get :router
+        :rules routes
+        :onPopstate @onPopstate
+        :duringLoading $ store.getIn $ [] :device :isLoading
+        :inHash true
 
   :styleRoot $ \ ()
     {}

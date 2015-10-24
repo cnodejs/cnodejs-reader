@@ -4,6 +4,9 @@ var
   Immutable $ require :immutable
 
 var
+  TopicEntry $ React.createFactory $ require :./topic-entry
+
+var
   ({}~ div) React.DOM
 
 = module.exports $ React.createClass $ {}
@@ -13,7 +16,7 @@ var
     :topics $ . (React.PropTypes.instanceOf Immutable.List) :isRequired
 
   :renderTopic $ \ (topic)
-    topic.get :title
+    TopicEntry $ {} (:topic topic) (:key $ topic.get :id)
 
   :render $ \ ()
     div ({} (:style $ @styleRoot))
@@ -21,3 +24,6 @@ var
 
   :styleRoot $ \ ()
     {}
+      :width :50%
+      :height :100%
+      :overflowY :auto

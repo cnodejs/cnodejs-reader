@@ -33,13 +33,13 @@
   },
   "dependencies": {
     "actions-recorder": "^1.4.0-alpha2",
+    "hsl": "^0.1.0",
     "immutable": "^3.7.5",
     "keycode": "^2.1.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
-    "router-view": "^1.1.2",
-    "rx": "^4.0.6",
-    "rx-dom": "^7.0.3"
+    "reqwest": "^2.0.5",
+    "router-view": "^1.1.2"
   },
   "repository": {
     "type": "git",
