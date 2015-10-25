@@ -5,7 +5,7 @@ var
 
 = exports.routerHome $ \ () (dispatch :router/home)
 = exports.routerTopic $ \ (id) (dispatch :router/topic id)
-= exports.routerUser $ \ (id) (dispatch :router/user id)
+= exports.routerUser $ \ (loginname) (dispatch :router/user loginname)
 = exports.routerMessage $ \ () (dispatch :router/message)
 
 = exports.topicGetList $ \ (topicList) (dispatch :topic/get-list topicList)
@@ -13,3 +13,5 @@ var
 
 = exports.deviceLoading $ \ (kind) (dispatch :device/loading kind)
 = exports.deviceLoaded $ \ () (dispatch :device/loaded)
+
+= exports.userGet $ \ (user) (dispatch :user/get user)

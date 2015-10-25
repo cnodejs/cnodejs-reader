@@ -16,7 +16,7 @@ var
     :topics $ . (React.PropTypes.instanceOf Immutable.List) :isRequired
 
   :renderTopic $ \ (topic)
-    TopicEntry $ {} (:topic topic) (:key $ topic.get :id)
+    TopicEntry $ {} (:topic topic) (:key $ topic.get :id) (:showLabel true)
 
   :render $ \ ()
     div ({} (:style $ @styleRoot))

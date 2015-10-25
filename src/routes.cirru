@@ -5,5 +5,5 @@ var
 = module.exports $ pathUtil.expandRoutes $ []
   [] :home :/
   [] :topic :/topic/:id
-  [] :user :/user/:id
+  [] :user :/user/:loginname
   [] :message :/message

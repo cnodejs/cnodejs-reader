@@ -11,7 +11,7 @@ var
 = exports.topicCollect topic.collect
 = exports.topicDeCollect topic.deCollect
 
-= exports.userName user.name
+= exports.userGet user.get
 = exports.userAccesstoken user.accesstoken
 
 = exports.replyUp reply.up

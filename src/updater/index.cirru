@@ -20,6 +20,8 @@ var id $ \ (x) x
     :router/topic router.topic
     :router/user router.user
 
+    :user/get user.get
+
     else id
 
   handler store actionData

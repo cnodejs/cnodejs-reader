@@ -20,7 +20,7 @@ var
   ({}~ div) React.DOM
 
 = module.exports $ React.createClass $ {}
-  :displayName :app-avatar
+  :displayName :app-content
 
   :propTypes $ {}
     :text React.PropTypes.string.isRequired

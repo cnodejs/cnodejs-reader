@@ -6,7 +6,7 @@ var
   ({}~ div) React.DOM
 
 = module.exports $ React.createClass $ {}
-  :displayName :app-avatar
+  :displayName :app-space
 
   :propTypes $ {}
     :width React.PropTypes.number

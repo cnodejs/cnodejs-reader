@@ -23,5 +23,21 @@ var
       actions.deviceLoading :topic
       ajax.topicGet id $ \ (topic)
         actions.topicGet topic
+        actions.routerTopic id
+        actions.deviceLoaded
+  , undefined
+
+= exports.routerUser $ \ (loginname)
+  var
+    store $ recorder.getStore
+
+  if (store.hasIn $ [] :users loginname)
+    do
+      actions.routerUser loginname
+    do
+      actions.deviceLoading :user
+      ajax.userGet loginname $ \ (user)
+        actions.userGet user
+        actions.routerUser loginname
         actions.deviceLoaded
   , undefined

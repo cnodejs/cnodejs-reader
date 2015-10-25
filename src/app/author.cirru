@@ -6,6 +6,7 @@ var
 
 var
   reset $ require :../util/reset
+  controller $ require :../controller
 
 var
   Avatar $ React.createFactory $ require :./avatar
@@ -24,8 +25,12 @@ var
     {}
       :showName false
 
+  :onClick $ \ (event)
+    event.stopPropagation
+    controller.routerUser $ @props.author.get :loginname
+
   :render $ \ ()
-    div ({} (:style $ @styleRoot))
+    div ({} (:style $ @styleRoot) (:onClick @onClick))
       Avatar $ {} (:url $ @props.author.get :avatar_url)
       cond @props.showName
         span ({} (:style $ @styleName))
@@ -35,6 +40,7 @@ var
     {}
       :display :flex
       :alignItems :center
+      :cursor :pointer
 
   :styleName $ \ ()
     {}

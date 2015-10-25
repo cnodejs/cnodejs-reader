@@ -7,8 +7,8 @@ var
     :name :home
     :data $ {}
     :query $ {}
-  :user null
   :topics $ []
+  :users $ {}
   :topicDetails $ {}
   :replies $ []
   :messages $ []
@@ -16,3 +16,4 @@ var
     :messageCount 0
     :isLoading false
     :loadingKind null
+    :loginName null

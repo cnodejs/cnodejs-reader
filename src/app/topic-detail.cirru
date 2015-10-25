@@ -26,6 +26,7 @@ var
   :render $ \ ()
     var
       topic @props.topic
+      replies $ topic.get :replies
 
     div ({} (:style $ @styleRoot))
       div ({} (:style $ @styleContent))
@@ -37,10 +38,12 @@ var
           Time $ {} (:time $ topic.get :create_at)
           Space $ {} (:width 10)
           Hint $ {} (:text $ + (topic.get :reply_count) :/ (topic.get :visit_count))
-        Space $ {} (:height :20px)
+        Space $ {} (:height 20)
         Content $ {} (:text $ topic.get :content)
       div ({} (:style $ @styleReplies))
-        ... topic (get :replies) $ map $ \ (reply)
+        div ({} (:style $ @styleSection))
+          + replies.size ": reples"
+        replies.map $ \ (reply)
           ReplyDetail $ {} (:reply reply) (:key $ reply.get :id)
 
   :styleRoot $ \ ()
@@ -56,6 +59,8 @@ var
       :paddingBottom :300px
       :paddingLeft :20px
       :paddingRight :20px
+      :height :100%
+      :overflowY :auto
 
   :styleReplies $ \ ()
     {}
@@ -63,6 +68,7 @@ var
       :height :100%
       :display :inline-block
       :overflowY :auto
+      :padding ":10px 10px"
 
   :styleTitle $ \ ()
     {}
@@ -76,3 +82,9 @@ var
       :display :flex
       :alignItems :center
       :justifyContent :flex-start
+
+  :styleSection $ \ ()
+    {}
+      :fontFamily reset.fashionFonts
+      :fontWeight :bold
+      :marginBottom :20px

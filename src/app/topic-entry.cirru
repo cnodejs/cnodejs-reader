@@ -21,6 +21,11 @@ var
 
   :propTypes $ {}
     :topic $ . (React.PropTypes.instanceOf Immutable.Map) :isRequired
+    :showLabel React.PropTypes.bool
+
+  :getDefaultProps $ \ ()
+    {}
+      :showLabel false
 
   :onClick $ \ ()
     controller.routerTopic $ @props.topic.get :id
@@ -32,11 +37,12 @@ var
       visits $ @props.topic.get :visit_count
     div ({} (:style $ @styleRoot) (:onClick @onClick))
       Author $ {} (:author $ @props.topic.get :author)
-      Space $ {} (:width :5px)
+      Space $ {} (:width 5)
       a ({} (:style $ @styleTitle) (:href $ + :#/topic id) (:className :topic-title))
         @props.topic.get :title
-      Space $ {} (:width :5px)
-      Hint $ {} (:text $ + replies :/ visits)
+      Space $ {} (:width 5)
+      cond @props.showLabel
+        Hint $ {} (:text $ + replies :/ visits)
 
   :styleRoot $ \ ()
     {}

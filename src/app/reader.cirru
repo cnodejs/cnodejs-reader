@@ -5,6 +5,7 @@ var
 
 var
   TopicList $ React.createFactory $ require :./topic-list
+  UserDetail $ React.createFactory $ require :./user-detail
   TopicDetail $ React.createFactory $ require :./topic-detail
   AppWireframe $ React.createFactory $ require :./app-wireframe
   TopicWireframe $ React.createFactory $ require :./topic-wireframe
@@ -25,6 +26,7 @@ var
       loadingKind $ store.getIn $ [] :device :loadingKind
       routerName $ store.getIn $ [] :router :name
       routerId $ store.getIn $ [] :router :data :id
+      loginname $ store.getIn $ [] :router :data :loginname
 
     cond (and isLoading (is loadingKind :start))
       AppWireframe
@@ -33,9 +35,11 @@ var
           TopicList $ {} (:topics $ @props.store.get :topics)
           cond (and isLoading (is loadingKind :topic))
             TopicWireframe
-            cond (is routerName :topic)
-              TopicDetail $ {}
+            case routerName
+              :topic $ TopicDetail $ {}
                 :topic $ store.getIn $ [] :topicDetails routerId
+              :user $ UserDetail $ {}
+                :user $ store.getIn $ [] :users loginname
 
   :styleRoot $ \ ()
     {}

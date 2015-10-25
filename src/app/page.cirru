@@ -27,9 +27,14 @@ var
 
   :componentDidMount $ \ ()
     window.addEventListener :keydown @onWindowKeydown
+    window.addEventListener :resize @onResize
 
   :componentWillUnmount $ \ ()
     window.removeEventListener :keydown @onWindowKeydown
+    window.removeEventListener :resize @onResize
+
+  :onResize $ \ ()
+    @forceUpdate
 
   :onWindowKeydown $ \ (event)
     if
