@@ -12,6 +12,13 @@ var
     actions.topicGetList topicList
     actions.deviceLoaded
 
+  var
+    maybeToken $ localStorage.getItem :cnodejs-reader-token
+  if (? maybeToken) $ do
+    exports.userAccesstoken maybeToken
+
+  , undefined
+
 = exports.routerTopic $ \ (id)
   var
     store $ recorder.getStore
@@ -41,3 +48,8 @@ var
         actions.routerUser loginname
         actions.deviceLoaded
   , undefined
+
+= exports.userAccesstoken $ \ (token)
+  ajax.userAccesstoken token $ \ (loginname)
+    actions.userLogin loginname
+    localStorage.setItem :cnodejs-reader-token token

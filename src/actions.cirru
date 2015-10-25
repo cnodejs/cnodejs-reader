@@ -15,3 +15,4 @@ var
 = exports.deviceLoaded $ \ () (dispatch :device/loaded)
 
 = exports.userGet $ \ (user) (dispatch :user/get user)
+= exports.userLogin $ \ (user) (dispatch :user/login user)

@@ -52,7 +52,7 @@ var
       :display :flex
       :flexDirection :row
       :alignItems :center
-      :padding :5px
+      :padding ":5px 10px"
       :cursor :pointer
 
   :styleTitle $ \ ()

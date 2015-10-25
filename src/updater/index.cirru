@@ -21,6 +21,7 @@ var id $ \ (x) x
     :router/user router.user
 
     :user/get user.get
+    :user/login user.login
 
     else id
 

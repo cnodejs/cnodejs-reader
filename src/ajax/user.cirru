@@ -16,4 +16,15 @@ var
     :error $ \ (error)
       console.log :error error
 
-= exports.accesstoken $ \ (token)
+= exports.accesstoken $ \ (token cb)
+  reqwest $ {}
+    :url $ + configs.domain :/api/v1/accesstoken
+    :data $ JSON.stringify $ {} (:accesstoken token)
+    :type :json
+    :method :post
+    :contentType :application/json
+    :success $ \ (data)
+      cb data.loginname
+    :error $ \ (error)
+      console.log :error error
+      alert $ JSON.stringify error

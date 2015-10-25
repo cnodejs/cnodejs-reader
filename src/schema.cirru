@@ -16,4 +16,4 @@ var
     :messageCount 0
     :isLoading false
     :loadingKind null
-    :loginName null
+    :loginname null
