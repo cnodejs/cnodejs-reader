@@ -38,6 +38,7 @@
     "keycode": "^2.1.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
+    "react-remarkable": "^1.1.1",
     "reqwest": "^2.0.5",
     "router-view": "^1.1.2"
   },

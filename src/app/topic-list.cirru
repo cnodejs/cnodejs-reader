@@ -24,6 +24,7 @@ var
 
   :styleRoot $ \ ()
     {}
-      :width :50%
+      :width :600px
       :height :100%
       :overflowY :auto
+      :display :inline-block

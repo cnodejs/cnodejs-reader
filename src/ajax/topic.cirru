@@ -2,9 +2,12 @@
 var
   reqwest $ require :reqwest
 
+var
+  configs $ require :../configs
+
 = exports.getList $ \ (cb)
   reqwest $ {}
-    :url :https://cnodejs.org/api/v1/topics
+    :url $ + configs.domain :/api/v1/topics
     :type :json
     :method :get
     :contentType :application/json
@@ -15,7 +18,9 @@ var
 
 = exports.get $ \ (id cb)
   reqwest $ {}
-    :url $ + :https://cnodejs.org/api/v1/topic/ id
+    :url $ + configs.domain :/api/v1/topic/ id
+    :data $ []
+      {} (:name :mdrender) (:value false)
     :type :json
     :method :get
     :contentType :application/json

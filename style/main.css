@@ -1,4 +1,6 @@
 
+@import url(spinner.css);
+
 body {
 }
 
@@ -8,9 +10,9 @@ body {
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  background: hsla(0,0%,100%,0.05);
+  background: hsla(0,0%,0%,0.02);
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: hsla(0,0%,100%,0.2);
+  background: hsla(0,0%,0%,0.1);
 }
