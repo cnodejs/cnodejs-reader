@@ -1,6 +1,7 @@
 
 var
   React $ require :react
+  hljs $ require :highlight.js
 
 var
   Remarkable $ React.createFactory $ require :react-remarkable
@@ -9,7 +10,11 @@ var
   reset $ require :../util/reset
   options $ {}
     :breaks true
+    :html true
     :linkify true
+    :highlight $ \ (code lang)
+      var result $ hljs.highlightAuto code
+      , result.value
 
 var
   ({}~ div) React.DOM
@@ -30,4 +35,4 @@ var
     {}
       :fontFamily reset.contentFonts
       :fontSize :14px
-      :lineHeight :1.5em
+      :lineHeight :1.8em

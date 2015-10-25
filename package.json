@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "actions-recorder": "^1.4.0-alpha2",
+    "highlight.js": "^8.9.1",
     "hsl": "^0.1.0",
     "immutable": "^3.7.5",
     "keycode": "^2.1.0",

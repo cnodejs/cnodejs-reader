@@ -37,6 +37,7 @@ var
       :display :flex
       :flexDirection :row
       :padding :5px
+      :cursor :pointer
 
   :styleTitle $ \ ()
     {}

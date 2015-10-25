@@ -1,0 +1,16 @@
+
+.markdown-content img {
+  max-width: 100%;
+  margin: 10px 0;
+}
+
+.markdown-content pre {
+  background-color: hsl(300,20%,98%);
+  padding: 10px;
+}
+
+.markdown-content pre,
+.markdown-content code {
+  font-family: Menlo, Consolas, Ubuntu Mono, monospace;
+  line-height: 1.5em;
+}

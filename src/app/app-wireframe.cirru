@@ -1,5 +1,6 @@
 
 var
+  hsl $ require :hsl
   React $ require :react
 
 var
@@ -33,6 +34,8 @@ var
 
   :styleText $ \ ()
     {}
-      :fontFamily reset.contentFonts
+      :fontFamily reset.fashionFonts
       :marginTop :20px
       :display :inline-block
+      :color $ hsl 0 10 70
+      :fontSize :13px

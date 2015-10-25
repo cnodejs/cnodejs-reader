@@ -1,3 +1,3 @@
 
 = module.exports $ {}
-  :domain :http://repo:3000
+  :domain :https://cnodejs.org

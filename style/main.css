@@ -1,18 +1,9 @@
 
 @import url(spinner.css);
+@import url(markdown.css);
+@import url(scrollbar.css);
+@import url(~highlight.js/styles/github.css);
 
 body {
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  background: hsla(0,0%,0%,0.02);
-}
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: hsla(0,0%,0%,0.1);
-}
