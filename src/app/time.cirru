@@ -16,7 +16,7 @@ var
   thisDay $ now.getDate
 
 = module.exports $ React.createClass $ {}
-  :displayName :app-avatar
+  :displayName :app-time
 
   :propTypes $ {}
     :time React.PropTypes.string.isRequired
@@ -38,7 +38,7 @@ var
     if (isnt thatMonth thisMonth) $ do $ return
       + thisMonth :/ thatDay
     if (isnt thatDay thisDay) $ do $ return
-      + : (- thatDay thisDay) ": " :days
+      + : (- thisDay thatDay) ": " :days
     if (isnt thatHour currentHour) $ do $ return
       + thatHour :: thatMin
     if (isnt thatMin currentMin) $ do $ return
@@ -51,9 +51,10 @@ var
 
   :styleRoot $ \ ()
     {}
-      :backgroundColor $ hsl 0 80 70
+      :backgroundColor $ hsl 0 80 80
       :color $ hsl 0 0 100
       :fontFamily reset.fashionFonts
       :padding ":0 10px"
-      :lineHeight :30px
+      :lineHeight :20px
+      :height :20px
       :fontSize :12px

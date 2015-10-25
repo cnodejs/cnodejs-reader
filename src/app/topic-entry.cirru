@@ -9,6 +9,8 @@ var
   controller $ require :../controller
 
 var
+  Hint $ React.createFactory $ require :./hint
+  Space $ React.createFactory $ require :./space
   Author $ React.createFactory $ require :./author
 
 var
@@ -26,10 +28,15 @@ var
   :render $ \ ()
     var
       id $ @props.topic.get :id
+      replies $ @props.topic.get :reply_count
+      visits $ @props.topic.get :visit_count
     div ({} (:style $ @styleRoot) (:onClick @onClick))
       Author $ {} (:author $ @props.topic.get :author)
+      Space $ {} (:width :5px)
       a ({} (:style $ @styleTitle) (:href $ + :#/topic id) (:className :topic-title))
         @props.topic.get :title
+      Space $ {} (:width :5px)
+      Hint $ {} (:text $ + replies :/ visits)
 
   :styleRoot $ \ ()
     {}
@@ -38,10 +45,13 @@ var
       :fontSize :14px
       :display :flex
       :flexDirection :row
+      :alignItems :center
       :padding :5px
       :cursor :pointer
 
   :styleTitle $ \ ()
     {}
-      :marginLeft :5px
       :textDecoration :none
+      :whiteSpace :nowrap
+      :overflow :hidden
+      :textOverflow :ellipsis

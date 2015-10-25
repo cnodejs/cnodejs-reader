@@ -21,5 +21,5 @@ var
       :backgroundImage $ + :url ":(" @props.url ":)"
       :backgroundSize :cover
       :backgroundColor $ hsl 0 0 80
-      :width :30px
-      :height :30px
+      :width :24px
+      :height :24px

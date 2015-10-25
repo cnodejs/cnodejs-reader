@@ -10,7 +10,7 @@ var
   ({}~ div) React.DOM
 
 = module.exports $ React.createClass $ {}
-  :displayName :app-avatar
+  :displayName :app-hint
 
   :propTypes $ {}
     :text React.PropTypes.string.isRequired
@@ -20,9 +20,10 @@ var
 
   :styleRoot $ \ ()
     {}
-      :lineHeight :30px
+      :lineHeight :20px
+      :height :20px
       :color $ hsl 0 0 100
       :fontFamily reset.fashionFonts
-      :backgroundColor $ hsl 240 80 80
+      :backgroundColor $ hsl 240 80 90
       :padding ":0 10px"
       :fontSize :12px

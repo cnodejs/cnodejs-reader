@@ -9,12 +9,13 @@ var
   :displayName :app-avatar
 
   :propTypes $ {}
-    :width React.PropTypes.number.isRequired
+    :width React.PropTypes.number
+    :height React.PropTypes.number
 
   :render $ \ ()
     div ({} (:style $ @styleRoot))
 
   :styleRoot $ \ ()
     {}
-      :width @props.width
-      :height :1em
+      :width $ or @props.width :100%
+      :height $ or @props.height :1em

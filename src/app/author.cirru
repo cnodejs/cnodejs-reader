@@ -43,4 +43,5 @@ var
       :paddingRight :10px
       :backgroundColor $ hsl 150 50 80
       :color $ hsl 0 0 100
-      :lineHeight :30px
+      :lineHeight :24px
+      :fontSize :13px

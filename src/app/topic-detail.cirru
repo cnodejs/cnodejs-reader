@@ -12,6 +12,7 @@ var
   Space $ React.createFactory $ require :./space
   Author $ React.createFactory $ require :./author
   Content $ React.createFactory $ require :./content
+  ReplyDetail $ React.createFactory $ require :./reply-detail
 
 var
   ({}~ div) React.DOM
@@ -36,14 +37,18 @@ var
           Time $ {} (:time $ topic.get :create_at)
           Space $ {} (:width 10)
           Hint $ {} (:text $ + (topic.get :reply_count) :/ (topic.get :visit_count))
+        Space $ {} (:height :20px)
         Content $ {} (:text $ topic.get :content)
       div ({} (:style $ @styleReplies))
+        ... topic (get :replies) $ map $ \ (reply)
+          ReplyDetail $ {} (:reply reply) (:key $ reply.get :id)
 
   :styleRoot $ \ ()
     {}
       :display :flex
       :width :1600px
       :overflowY :auto
+      :height :100%
 
   :styleContent $ \ ()
     {}
@@ -57,6 +62,7 @@ var
       :width :800px
       :height :100%
       :display :inline-block
+      :overflowY :auto
 
   :styleTitle $ \ ()
     {}
@@ -69,3 +75,4 @@ var
     {}
       :display :flex
       :alignItems :center
+      :justifyContent :flex-start
