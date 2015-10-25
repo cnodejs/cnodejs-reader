@@ -12,7 +12,7 @@ var
   Author $ React.createFactory $ require :./author
 
 var
-  ({}~ div span) React.DOM
+  ({}~ div span a) React.DOM
 
 = module.exports $ React.createClass $ {}
   :displayName :topic-entry
@@ -24,9 +24,11 @@ var
     controller.routerTopic $ @props.topic.get :id
 
   :render $ \ ()
+    var
+      id $ @props.topic.get :id
     div ({} (:style $ @styleRoot) (:onClick @onClick))
       Author $ {} (:author $ @props.topic.get :author)
-      span ({} (:style $ @styleTitle))
+      a ({} (:style $ @styleTitle) (:href $ + :#/topic id) (:className :topic-title))
         @props.topic.get :title
 
   :styleRoot $ \ ()
@@ -42,3 +44,4 @@ var
   :styleTitle $ \ ()
     {}
       :marginLeft :5px
+      :textDecoration :none

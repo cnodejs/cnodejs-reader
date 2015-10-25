@@ -7,3 +7,10 @@
 body {
 }
 
+.topic-title:link {
+  color: hsl(0,0%,10%);
+}
+
+.topic-title:visited {
+  color: hsl(0,0%,50%);
+}

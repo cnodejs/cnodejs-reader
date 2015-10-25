@@ -13,8 +13,15 @@ var
     actions.deviceLoaded
 
 = exports.routerTopic $ \ (id)
-  actions.deviceLoading :topic
-  ajax.topicGet id $ \ (topic)
-    actions.topicGet topic
-    actions.routerTopic id
-    actions.deviceLoaded
+  var
+    store $ recorder.getStore
+
+  if (store.hasIn $ [] :topicDetails id)
+    do
+      actions.routerTopic id
+    do
+      actions.deviceLoading :topic
+      ajax.topicGet id $ \ (topic)
+        actions.topicGet topic
+        actions.deviceLoaded
+  , undefined
