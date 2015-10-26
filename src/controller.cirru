@@ -66,3 +66,10 @@ var
       actions.topicGet topic
       actions.routerTopic id
       actions.deviceLoaded
+
+= exports.replyCreate $ \ (data)
+  var
+    token $ localStorage.getItem :cnodejs-reader-token
+  ajax.replyCreate data token $ \ (id)
+    ajax.topicGet data.topic_id $ \ (topic)
+      actions.topicGet topic

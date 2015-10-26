@@ -6,6 +6,7 @@ var
 
 var
   reset $ require :../util/reset
+  controller $ require :../controller
 
 var
   Time $ React.createFactory $ require :./time
@@ -35,6 +36,10 @@ var
       :text event.target.value
 
   :onSubmit $ \ ()
+    controller.replyCreate $ {}
+      :topic_id $ @props.topic.get :id
+      :content @state.text
+    @setState $ {} (:text :)
 
   :renderEditor $ \ ()
     div ({} (:style $ @styleEditor))
