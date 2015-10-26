@@ -22,6 +22,7 @@ var
         :query $ {} (:limit 100)
       {} (:test /\.css$) $ :loader
         ExtractTextPlugin.extract :style-loader :css!autoprefixer
+      {} (:test /\.json$) $ :loader :json
 
   :plugins $ []
     new webpack.optimize.CommonsChunkPlugin :vendor :vendor.[chunkhash:8].js

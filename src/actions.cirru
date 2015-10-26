@@ -7,6 +7,7 @@ var
 = exports.routerTopic $ \ (id) (dispatch :router/topic id)
 = exports.routerUser $ \ (loginname) (dispatch :router/user loginname)
 = exports.routerMessage $ \ () (dispatch :router/message)
+= exports.routerPost $ \ () (dispatch :router/post)
 
 = exports.topicGetList $ \ (topicList) (dispatch :topic/get-list topicList)
 = exports.topicGet $ \ (topicList) (dispatch :topic/get topicList)

@@ -1,4 +1,7 @@
 
+var
+  Immutable $ require :immutable
+
 = exports.topic $ \ (store id)
   ... store
     setIn ([] :router :name) :topic
@@ -8,3 +11,8 @@
   ... store
     setIn ([] :router :name) :user
     setIn ([] :router :data :loginname) loginname
+
+= exports.post $ \ (store)
+  ... store
+    setIn ([] :router :name) :post
+    setIn ([] :router :data) $ Immutable.Map

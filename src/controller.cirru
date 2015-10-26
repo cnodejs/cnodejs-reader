@@ -53,3 +53,6 @@ var
   ajax.userAccesstoken token $ \ (loginname)
     actions.userLogin loginname
     localStorage.setItem :cnodejs-reader-token token
+
+= exports.routerPost $ \ ()
+  actions.routerPost

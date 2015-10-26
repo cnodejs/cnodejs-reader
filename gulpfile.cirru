@@ -18,7 +18,7 @@ gulp.task :rsync $ \ (cb)
       :src $ array :index.html :build
       :recursive true
       :args $ array :--verbose
-      :dest :tiye:~/repo/workflow/
+      :dest :aliyun:~/repo/cnodejs-reader/
       :deleteAll true
     \ (error stdout stderr cmd)
       if (? error)

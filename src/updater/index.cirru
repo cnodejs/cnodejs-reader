@@ -19,6 +19,7 @@ var id $ \ (x) x
 
     :router/topic router.topic
     :router/user router.user
+    :router/post router.post
 
     :user/get user.get
     :user/login user.login

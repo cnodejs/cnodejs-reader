@@ -31,3 +31,4 @@ var
       :backgroundColor $ hsl 240 80 80
       :lineHeight :30px
       :color :white
+      :cursor :pointer

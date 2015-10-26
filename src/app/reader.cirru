@@ -11,6 +11,7 @@ var
   Space $ React.createFactory $ require :./space
   Button $ React.createFactory $ require :./button
   TopicList $ React.createFactory $ require :./topic-list
+  TopicPost $ React.createFactory $ require :./topic-post
   UserDetail $ React.createFactory $ require :./user-detail
   TopicDetail $ React.createFactory $ require :./topic-detail
   AppWireframe $ React.createFactory $ require :./app-wireframe
@@ -36,6 +37,7 @@ var
     controller.userAccesstoken @state.token
 
   :onPost $ \ ()
+    controller.routerPost
 
   :onRefresh $ \ ()
 
@@ -75,6 +77,7 @@ var
                 :topic $ store.getIn $ [] :topicDetails routerId
               :user $ UserDetail $ {}
                 :user $ store.getIn $ [] :users loginname
+              :post $ TopicPost
 
   :styleRoot $ \ ()
     {}
