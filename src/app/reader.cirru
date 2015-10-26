@@ -40,6 +40,7 @@ var
     controller.routerPost
 
   :onRefresh $ \ ()
+    controller.topicRefresh
 
   :render $ \ ()
     var
@@ -50,6 +51,7 @@ var
       routerId $ store.getIn $ [] :router :data :id
       loginname $ store.getIn $ [] :router :data :loginname
       user $ store.getIn $ [] :device :loginname
+      isTopicEnd $ store.getIn $ [] :device :isTopicEnd
 
     cond (and isLoading (is loadingKind :start))
       AppWireframe
@@ -70,6 +72,7 @@ var
                 Space $ {} (:width 10)
                 Button $ {} (:text :login) (:onClick @onLogin)
             TopicList $ {} (:topics $ @props.store.get :topics)
+              :isTopicEnd isTopicEnd
           cond (and isLoading (is loadingKind :topic))
             TopicWireframe
             case routerName
@@ -115,3 +118,8 @@ var
       :lineHeight :24px
       :padding ":0 5px"
       :width 200
+
+  :styleFooter $ \ ()
+    {}
+      :display :flex
+      :justifyContent :flex-end

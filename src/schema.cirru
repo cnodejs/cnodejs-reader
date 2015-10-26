@@ -17,3 +17,5 @@ var
     :isLoading false
     :loadingKind null
     :loginname null
+    :page 0
+    :isTopicEnd false

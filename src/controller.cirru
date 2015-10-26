@@ -7,8 +7,11 @@ var
   actions $ require :./actions
 
 = exports.start $ \ ()
+  var
+    store $ recorder.getStore
+    page $ store.getIn $ [] :device :page
   actions.deviceLoading :start
-  ajax.topicGetList $ \ (topicList)
+  ajax.topicGetList (+ page 1) $ \ (topicList)
     actions.topicGetList topicList
     actions.deviceLoaded
 
@@ -73,3 +76,29 @@ var
   ajax.replyCreate data token $ \ (id)
     ajax.topicGet data.topic_id $ \ (topic)
       actions.topicGet topic
+
+= exports.topicMore $ \ ()
+  var
+    store $ recorder.getStore
+    page $ store.getIn $ [] :device :page
+  ajax.topicGetList (+ page 1) $ \ (topicList)
+    actions.topicGetList topicList
+
+= exports.topicRefresh $ \ ()
+  actions.routerHome
+  ajax.topicGetList 1 $ \ (topicList)
+    actions.topicRefresh topicList
+
+= exports.routerGo $ \ (info)
+  switch (info.get :name)
+    :home
+      actions.routerHome
+    :topic
+      exports.routerTopic $ info.getIn $ [] :data :id
+    :user
+      exports.routerUser $ info.getIn $ [] :data :loginname
+    :post
+      actions.routerPost
+    else
+      actions.routerHome
+  , undefined

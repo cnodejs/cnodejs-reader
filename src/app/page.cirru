@@ -6,6 +6,7 @@ var
 
 var
   routes $ require :../routes
+  controller $ require :../controller
 
 var
   Reader $ React.createFactory $ require :./reader
@@ -48,7 +49,7 @@ var
     , undefined
 
   :onPopstate $ \ (info)
-    console.log :onPopstate info
+    controller.routerGo info
 
   :renderDevtools $ \ ()
     div ({} (:style $ @styleDevtools))

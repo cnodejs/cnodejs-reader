@@ -32,6 +32,6 @@ if module.hot $ do
     recorder.hotSetup $ {}
       :initial schema.store
       :updater updater
-  module.hot.accept :./controller
+  module.hot.accept :./controller $ \ ()
 
 controller.start

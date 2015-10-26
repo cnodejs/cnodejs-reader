@@ -46,7 +46,7 @@ var
       div ({} (:style $ @styleLine))
         div ({} (:style $ @styleField)) :Score
         Space $ {} (:width 10)
-        Hint $ {} (:text $ @props.user.get :score)
+        Hint $ {} (:text $ String $ @props.user.get :score)
       Space $ {} (:height 10)
       div ({} (:style $ @styleSection)) ":Recent posted topics:"
       @renderTopics

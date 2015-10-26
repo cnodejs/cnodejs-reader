@@ -5,10 +5,13 @@ var
 var
   configs $ require :../configs
 
-= exports.getList $ \ (cb)
+= exports.getList $ \ (page cb)
   reqwest $ {}
     :url $ + configs.domain :/api/v1/topics
     :type :json
+    :data $ {}
+      :page page
+      :limit 2
     :method :get
     :contentType :application/json
     :success $ \ (data)
