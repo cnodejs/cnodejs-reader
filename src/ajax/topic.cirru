@@ -29,7 +29,21 @@ var
     :error $ \ (error)
       console.log :error error
 
-= exports.create $ \ ()
+= exports.create $ \ (data token cb)
+  reqwest $ {}
+    :url $ + configs.domain :/api/v1/topics
+    :data $ JSON.stringify $ {}
+      :title data.title
+      :content data.content
+      :tab data.tab
+      :accesstoken token
+    :type :json
+    :method :post
+    :contentType :application/json
+    :success $ \ (data)
+      cb data.topic_id
+    :error $ \ (error)
+      console.log :error error
 
 = exports.collect $ \ ()
 

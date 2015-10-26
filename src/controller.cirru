@@ -56,3 +56,13 @@ var
 
 = exports.routerPost $ \ ()
   actions.routerPost
+
+= exports.topicCreate $ \ (data)
+  var
+    token $ localStorage.getItem :cnodejs-reader-token
+  actions.deviceLoaded :topic
+  ajax.topicCreate data token $ \ (id)
+    ajax.topicGet id $ \ (topic)
+      actions.topicGet topic
+      actions.routerTopic id
+      actions.deviceLoaded

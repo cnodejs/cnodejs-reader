@@ -75,6 +75,7 @@ var
             case routerName
               :topic $ TopicDetail $ {}
                 :topic $ store.getIn $ [] :topicDetails routerId
+                :isLogined $ ? user
               :user $ UserDetail $ {}
                 :user $ store.getIn $ [] :users loginname
               :post $ TopicPost

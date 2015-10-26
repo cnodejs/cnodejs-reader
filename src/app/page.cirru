@@ -60,8 +60,9 @@ var
   :render $ \ ()
     var
       store $ @props.core.get :store
+      loginname $ store.getIn $ [] :device :loginname
     div ({} (:style $ @styleRoot))
-      Reader $ {} (:store store)
+      Reader $ {} (:store store) (:isLogined loginname)
       cond @state.showDevtools
         @renderDevtools
       Addressbar $ {}

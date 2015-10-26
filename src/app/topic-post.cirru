@@ -5,6 +5,7 @@ var
 
 var
   reset $ require :../util/reset
+  controller $ require :../controller
 
 var
   Space $ React.createFactory $ require :./space
@@ -35,6 +36,10 @@ var
     @setState $ {} (:showPreview $ not @state.showPreview)
 
   :onSubmit $ \ ()
+    controller.topicCreate $ {}
+      :title @state.title
+      :content @state.content
+      :tab :ask
 
   :render $ \ ()
     div ({} (:style $ @styleRoot))

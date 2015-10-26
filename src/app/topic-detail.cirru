@@ -24,6 +24,7 @@ var
 
   :propTypes $ {}
     :topic $ . (React.PropTypes.instanceOf Immutable.Map) :isRequired
+    :isLogined React.PropTypes.bool.isRequired
 
   :getInitialState $ \ ()
     {}
@@ -45,6 +46,7 @@ var
         :placeholder :reply...
       div ({} (:style $ @styleWrapper))
         Content $ {} (:text @state.text)
+      Space $ {} (:height 10)
       div ({} (:style $ @styleToolbar))
         Button $ {} (:text :submit) (:onClick @onSubmit)
       Space $ {} (:height 400)
@@ -71,7 +73,8 @@ var
           + replies.size ": reples"
         replies.map $ \ (reply)
           ReplyDetail $ {} (:reply reply) (:key $ reply.get :id)
-        @renderEditor
+        cond @props.isLogined
+          @renderEditor
 
   :styleRoot $ \ ()
     {}
