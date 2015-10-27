@@ -8,6 +8,7 @@ var
   controller $ require :../controller
 
 var
+  Title $ React.createFactory $ require :./title
   Button $ React.createFactory $ require :./button
   MessageDetail $ React.createFactory $ require :./message-detail
 
@@ -28,11 +29,15 @@ var
       count @props.messages.size
     cond (> count 0)
       div ({} (:style $ @styleRoot))
+        Title $ {}
+          :title $ + ":(" count ":) " :CNode.js
         @props.messages.map $ \ (message)
           MessageDetail $ {} (:message message) (:key $ message.get :id)
         div ({} (:style $ @styleToolbar))
           Button $ {} (:text :clear) (:onClick @onClear)
-      div
+      div null
+        Title $ {}
+          :title :CNode.js
 
   :styleRoot $ \ ()
     {}
