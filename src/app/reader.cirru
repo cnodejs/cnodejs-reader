@@ -72,6 +72,7 @@ var
                 Space $ {} (:width 10)
                 Button $ {} (:text :login) (:onClick @onLogin)
             TopicList $ {} (:topics $ @props.store.get :topics)
+              :messages $ @props.store.get :messages
               :isTopicEnd isTopicEnd
           cond (and isLoading (is loadingKind :topic))
             TopicWireframe

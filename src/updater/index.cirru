@@ -28,6 +28,7 @@ var id $ \ (x) x
     :user/login user.login
 
     :message/get-list message.getList
+    :message/mark-all message.markAll
 
     else id
 

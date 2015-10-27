@@ -5,6 +5,13 @@ var
   Immutable $ require :immutable
 
 var
+  controller $ require :../controller
+
+var
+  Button $ React.createFactory $ require :./button
+  MessageDetail $ React.createFactory $ require :./message-detail
+
+var
   ({}~ div) React.DOM
 
 = module.exports $ React.createClass $ {}
@@ -13,8 +20,27 @@ var
   :propTypes $ {}
     :messages $ . (React.PropTypes.instanceOf Immutable.List) :isRequired
 
+  :onClear $ \ ()
+    controller.messageMarkAll
+
   :render $ \ ()
-    div ({} (:style $ @styleRoot))
+    var
+      count @props.messages.size
+    cond (> count 0)
+      div ({} (:style $ @styleRoot))
+        @props.messages.map $ \ (message)
+          MessageDetail $ {} (:message message) (:key $ message.get :id)
+        div ({} (:style $ @styleToolbar))
+          Button $ {} (:text :clear) (:onClick @onClear)
+      div
 
   :styleRoot $ \ ()
     {}
+      :backgroundColor $ hsl 0 30 96
+      :padding ":10px 0"
+
+  :styleToolbar $ \ ()
+    {}
+      :display :flex
+      :justifyContent :flex-end
+      :padding ":0 10px"

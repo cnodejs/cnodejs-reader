@@ -34,6 +34,7 @@ var
   :styleRoot $ \ ()
     {}
       :marginTop :10px
+      :padding ":0 10px"
 
   :styleInfo $ \ ()
     {}

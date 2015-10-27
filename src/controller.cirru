@@ -111,7 +111,7 @@ var
   setInterval
     \ ()
       exports.messageGetList token
-    , 4000
+    , 20000
 
 = exports.messageGetList $ \ (token)
   var
@@ -124,3 +124,9 @@ var
         , currentMessages
       do $ actions.messageGetList messages
     , undefined
+
+= exports.messageMarkAll $ \ ()
+  var
+    token $ localStorage.getItem :cnodejs-reader-token
+  ajax.messageMarkAll token $ \ ()
+    actions.messageMarkAll

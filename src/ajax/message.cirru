@@ -20,4 +20,15 @@ var
     :error $ \ (error)
       console.log :error error
 
-= exports.markAll $ \ ()
+= exports.markAll $ \ (token cb)
+  reqwest $ {}
+    :url $ + configs.domain :/api/v1/message/mark_all
+    :type :json
+    :data $ JSON.stringify $ {}
+      :accesstoken token
+    :method :post
+    :contentType :application/json
+    :success $ \ (data)
+      cb data
+    :error $ \ (error)
+      console.log :error error

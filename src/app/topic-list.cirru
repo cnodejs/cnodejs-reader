@@ -9,6 +9,7 @@ var
   Space $ React.createFactory $ require :./space
   Button $ React.createFactory $ require :./button
   TopicEntry $ React.createFactory $ require :./topic-entry
+  MessageList $ React.createFactory $ require :./message-list
 
 var
   ({}~ div) React.DOM
@@ -18,6 +19,7 @@ var
 
   :propTypes $ {}
     :topics $ . (React.PropTypes.instanceOf Immutable.List) :isRequired
+    :messages $ . (React.PropTypes.instanceOf Immutable.List) :isRequired
     :isTopicEnd React.PropTypes.bool.isRequired
 
   :onMore $ \ ()
@@ -29,6 +31,7 @@ var
   :render $ \ ()
     div ({} (:style $ @styleRoot))
       Space $ {} (:height 60)
+      MessageList $ {} (:messages @props.messages)
       @props.topics.map @renderTopic
       cond (not @props.isTopicEnd)
         div ({} (:style $ @styleFooter))
