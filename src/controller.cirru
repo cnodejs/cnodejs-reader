@@ -1,6 +1,7 @@
 
 var
   recorder $ require :actions-recorder
+  Immutable $ require :immutable
 
 var
   ajax $ require :./ajax
@@ -18,7 +19,8 @@ var
   var
     maybeToken $ localStorage.getItem :cnodejs-reader-token
   if (? maybeToken) $ do
-    exports.userAccesstoken maybeToken
+    exports.userAccesstoken maybeToken $ \ (loginname)
+      exports.loopRequestMessages maybeToken
 
   , undefined
 
@@ -56,6 +58,7 @@ var
   ajax.userAccesstoken token $ \ (loginname)
     actions.userLogin loginname
     localStorage.setItem :cnodejs-reader-token token
+    exports.loopRequestMessages token
 
 = exports.routerPost $ \ ()
   actions.routerPost
@@ -102,3 +105,22 @@ var
     else
       actions.routerHome
   , undefined
+
+= exports.loopRequestMessages $ \ (token)
+  exports.messageGetList token
+  setInterval
+    \ ()
+      exports.messageGetList token
+    , 4000
+
+= exports.messageGetList $ \ (token)
+  var
+    store $ recorder.getStore
+    currentMessages $ store.get :messages
+  ajax.messageGetList token $ \ (messages)
+    if
+      not $ Immutable.is
+        Immutable.fromJS messages
+        , currentMessages
+      do $ actions.messageGetList messages
+    , undefined

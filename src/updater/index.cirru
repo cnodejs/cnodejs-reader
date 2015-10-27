@@ -27,6 +27,8 @@ var id $ \ (x) x
     :user/get user.get
     :user/login user.login
 
+    :message/get-list message.getList
+
     else id
 
   handler store actionData

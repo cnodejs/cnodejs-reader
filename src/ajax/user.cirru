@@ -5,10 +5,12 @@ var
 var
   configs $ require :../configs
 
-= exports.get $ \ (loginname cb)
+= exports.get $ \ (token cb)
   reqwest $ {}
     :url $ + configs.domain :/api/v1/user/ loginname
     :type :json
+    :data $ {}
+      :accesstoken token
     :method :get
     :contentType :application/json
     :success $ \ (data)

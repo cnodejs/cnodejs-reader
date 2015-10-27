@@ -9,6 +9,7 @@
 .markdown-content pre {
   background-color: hsl(300,20%,98%);
   padding: 10px;
+  overflow: auto;
 }
 
 .markdown-content pre,

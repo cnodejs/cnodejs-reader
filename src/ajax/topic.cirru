@@ -11,7 +11,7 @@ var
     :type :json
     :data $ {}
       :page page
-      :limit 2
+      :limit 40
     :method :get
     :contentType :application/json
     :success $ \ (data)

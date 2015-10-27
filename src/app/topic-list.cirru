@@ -6,6 +6,7 @@ var
 var controller $ require :../controller
 
 var
+  Space $ React.createFactory $ require :./space
   Button $ React.createFactory $ require :./button
   TopicEntry $ React.createFactory $ require :./topic-entry
 
@@ -27,10 +28,12 @@ var
 
   :render $ \ ()
     div ({} (:style $ @styleRoot))
+      Space $ {} (:height 60)
       @props.topics.map @renderTopic
       cond (not @props.isTopicEnd)
         div ({} (:style $ @styleFooter))
           Button $ {} (:text :more) (:onClick @onMore)
+      Space $ {} (:height 400)
 
   :styleRoot $ \ ()
     {}

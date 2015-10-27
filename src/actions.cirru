@@ -19,3 +19,5 @@ var
 
 = exports.userGet $ \ (user) (dispatch :user/get user)
 = exports.userLogin $ \ (user) (dispatch :user/login user)
+
+= exports.messageGetList $ \ (mesageList) (dispatch :message/get-list mesageList)
