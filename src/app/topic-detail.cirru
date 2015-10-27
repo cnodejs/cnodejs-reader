@@ -6,6 +6,7 @@ var
 
 var
   reset $ require :../util/reset
+  configs $ require :../configs
   controller $ require :../controller
 
 var
@@ -18,7 +19,7 @@ var
   ReplyDetail $ React.createFactory $ require :./reply-detail
 
 var
-  ({}~ div textarea) React.DOM
+  ({}~ div textarea a) React.DOM
 
 = module.exports $ React.createClass $ {}
   :displayName :topic-detail
@@ -71,6 +72,11 @@ var
           Time $ {} (:time $ topic.get :create_at)
           Space $ {} (:width 10)
           Hint $ {} (:text $ + (topic.get :reply_count) :/ (topic.get :visit_count))
+          Space $ {} (:width 10)
+          a
+            {} (:target :_blank) (:style $ @styleLink)
+              :href $ + configs.domain :/topic/ $ topic.get :id
+            , ":🔗"
         Space $ {} (:height 20)
         Content $ {} (:text $ topic.get :content)
       div ({} (:style $ @styleReplies))
@@ -110,7 +116,7 @@ var
       :fontSize :18px
       :fontWeight :bold
       :fontFamily reset.contentFonts
-      :lineHeight :2em
+      :lineHeight :2.8em
 
   :styleInfo $ \ ()
     {}
@@ -149,3 +155,9 @@ var
     {}
       :padding 10
       :border $ + ":1px solid " $ hsl 0 0 90
+
+  :styleLink $ \ ()
+    {}
+      :textDecoration :none
+      :fontFamily reset.contentFonts
+      :fontSize :12px

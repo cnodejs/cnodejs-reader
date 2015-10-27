@@ -29,4 +29,3 @@ var
       cb data.loginname
     :error $ \ (error)
       console.log :error error
-      alert $ JSON.stringify error
