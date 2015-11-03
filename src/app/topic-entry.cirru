@@ -38,7 +38,7 @@ var
     div ({} (:style $ @styleRoot) (:onClick @onClick))
       Author $ {} (:author $ @props.topic.get :author)
       Space $ {} (:width 5)
-      a ({} (:style $ @styleTitle) (:href $ + :#/topic id) (:className :topic-title))
+      a ({} (:style $ @styleTitle) (:href $ + :#/topic/ id) (:className :topic-title))
         @props.topic.get :title
       Space $ {} (:width 5)
       cond @props.showLabel

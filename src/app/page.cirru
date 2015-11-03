@@ -25,6 +25,7 @@ var
   :getInitialState $ \ ()
     {}
       :showDevtools false
+      :path $ Immutable.List
 
   :componentDidMount $ \ ()
     window.addEventListener :keydown @onWindowKeydown
@@ -33,6 +34,10 @@ var
   :componentWillUnmount $ \ ()
     window.removeEventListener :keydown @onWindowKeydown
     window.removeEventListener :resize @onResize
+
+  :isLoading $ \ ()
+    var store $ @props.core.get :store
+    store.getIn $ [] :device :isLoading
 
   :onResize $ \ ()
     @forceUpdate
@@ -49,7 +54,12 @@ var
     , undefined
 
   :onPopstate $ \ (info)
-    controller.routerGo info
+    if (not $ @isLoading) $ do
+      controller.routerGo info
+    , undefined
+
+  :onPathChange $ \ (path)
+    @setState $ {} (:path path)
 
   :renderDevtools $ \ ()
     div ({} (:style $ @styleDevtools))
@@ -57,6 +67,8 @@ var
         :core @props.core
         :width 400
         :height window.innerHeight
+        :path @state.path
+        :onPathChange @onPathChange
 
   :render $ \ ()
     var
@@ -70,7 +82,7 @@ var
         :route $ store.get :router
         :rules routes
         :onPopstate @onPopstate
-        :duringLoading $ store.getIn $ [] :device :isLoading
+        :skipRendering $ @isLoading
         :inHash true
 
   :styleRoot $ \ ()
