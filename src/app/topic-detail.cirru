@@ -2,6 +2,7 @@
 var
   hsl $ require :hsl
   React $ require :react
+  keycode $ require :keycode
   Immutable $ require :immutable
 
 var
@@ -42,6 +43,13 @@ var
       :content @state.text
     @setState $ {} (:text :)
 
+  :onTextKeyDown $ \ (event)
+    if
+      and (is (keycode event.keyCode) :enter)
+        or event.ctrlKey event.metaKey
+      do $ @onSubmit
+    , undefined
+
   :renderEditor $ \ ()
     div ({} (:style $ @styleEditor))
       Space $ {} (:height 20)
@@ -49,6 +57,7 @@ var
       textarea $ {} (:style $ @styleText)
         :value @state.text
         :onChange @onTextChange
+        :onKeyDown @onTextKeyDown
         :placeholder :reply...
       div ({} (:style $ @styleWrapper))
         Content $ {} (:text @state.text)
