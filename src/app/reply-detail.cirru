@@ -35,6 +35,8 @@ var
     {}
       :marginTop :10px
       :padding ":0 10px"
+      :margin ":20px 0"
+      :borderBottom $ + ":1px solid " (hsl 0 0 95)
 
   :styleInfo $ \ ()
     {}

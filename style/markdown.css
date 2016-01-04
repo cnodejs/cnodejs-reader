@@ -1,4 +1,9 @@
 
+.markdown-content p {
+  margin: 5px 0;
+  margin-bottom: 20px;
+}
+
 .markdown-content img {
   max-width: 100%;
   margin: 10px 0;

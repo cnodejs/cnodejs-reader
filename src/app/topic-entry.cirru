@@ -58,7 +58,7 @@ var
       :alignItems :center
       :padding ":8px 10px"
       :cursor :pointer
-      :borderBottom $ + ":1px solid " $ hsl 0 0 95
+      :borderBottom $ + ":1px solid " $ hsl 0 0 94
       :backgroundColor $ cond @props.isSelected
         hsl 0 0 95
         hsl 0 0 100

@@ -45,9 +45,7 @@ var
   :styleName $ \ ()
     {}
       :fontFamily reset.fashionFonts
-      :paddingLeft :10px
-      :paddingRight :10px
-      :backgroundColor $ hsl 150 50 80
-      :color $ hsl 0 0 100
+      :paddingLeft :8px
+      :color $ hsl 0 0 70
       :lineHeight :24px
       :fontSize :13px

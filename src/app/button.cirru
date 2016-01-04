@@ -25,10 +25,11 @@ var
 
   :styleRoot $ \ ()
     {}
-      :padding ":0 10px"
+      :padding ":0 16px"
       :fontFamily reset.fashionFonts
       :fontSize :14px
       :backgroundColor $ hsl 240 80 80
       :lineHeight :30px
       :color :white
       :cursor :pointer
+      :borderRadius :20px

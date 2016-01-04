@@ -32,7 +32,7 @@ var
 
   :render $ \ ()
     div ({} (:style $ @styleRoot))
-      Space $ {} (:height 60)
+      Space $ {} (:height 40)
       MessageList $ {} (:messages @props.messages)
       @props.topics.map @renderTopic
       cond (not @props.isTopicEnd)
