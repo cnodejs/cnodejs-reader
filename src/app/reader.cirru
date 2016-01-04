@@ -74,6 +74,7 @@ var
             TopicList $ {} (:topics $ @props.store.get :topics)
               :messages $ @props.store.get :messages
               :isTopicEnd isTopicEnd
+              :selectedTopic routerId
           cond (and isLoading (is loadingKind :topic))
             TopicWireframe
             case routerName

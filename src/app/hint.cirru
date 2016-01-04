@@ -22,8 +22,7 @@ var
     {}
       :lineHeight :20px
       :height :20px
-      :color $ hsl 0 0 100
-      :fontFamily reset.fashionFonts
-      :backgroundColor $ hsl 240 80 90
-      :padding ":0 10px"
+      :color $ hsl 0 0 79
+      :fontFamily reset.codeFonts
+      :padding ":0 2px"
       :fontSize :12px

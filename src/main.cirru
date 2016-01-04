@@ -3,16 +3,22 @@ var
   React $ require :react
   ReactDOM $ require :react-dom
   recorder $ require :actions-recorder
+  pathUtil $ require :router-view/lib/path
 
 require :../style/main.css
 
 var
+  routes $ require :./routes
   schema $ require :./schema
   updater $ require :./updater
   controller $ require :./controller
 
 var
   Page $ React.createFactory $ require :./app/page
+
+var
+  oldAddress $ location.hash.substr 1
+  router $ pathUtil.getCurrentInfo routes oldAddress
 
 recorder.setup $ {}
   :initial schema.store
@@ -38,3 +44,6 @@ if module.hot $ do
     recorder.request render
 
 controller.start
+
+if (is (router.get :name) :topic) $ do
+  controller.routerTopic (router.getIn $ [] :data :id)

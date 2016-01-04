@@ -14,6 +14,7 @@
 .markdown-content pre,
 .markdown-content code {
   font-family: Menlo, Consolas, Ubuntu Mono, monospace;
+  font-size: 14px;
   line-height: 1.5em;
 }
 

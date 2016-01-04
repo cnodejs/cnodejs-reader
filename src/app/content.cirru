@@ -34,5 +34,5 @@ var
   :styleRoot $ \ ()
     {}
       :fontFamily reset.contentFonts
-      :fontSize :14px
+      :fontSize :15px
       :lineHeight :1.8em

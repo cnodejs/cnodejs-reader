@@ -21,12 +21,14 @@ var
     :topics $ . (React.PropTypes.instanceOf Immutable.List) :isRequired
     :messages $ . (React.PropTypes.instanceOf Immutable.List) :isRequired
     :isTopicEnd React.PropTypes.bool.isRequired
+    :selectedTopic React.PropTypes.string
 
   :onMore $ \ ()
     controller.topicMore
 
   :renderTopic $ \ (topic)
     TopicEntry $ {} (:topic topic) (:key $ topic.get :id) (:showLabel true)
+      :isSelected (is (topic.get :id) @props.selectedTopic)
 
   :render $ \ ()
     div ({} (:style $ @styleRoot))

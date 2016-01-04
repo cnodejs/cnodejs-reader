@@ -75,6 +75,7 @@ var
       div ({} (:style $ @styleContent))
         div ({} (:style $ @styleTitle))
           topic.get :title
+        Space $ {} :height 20
         div ({} (:style $ @styleInfo))
           Author $ {} (:author $ topic.get :author) (:showName true)
           Space $ {} (:width 10)

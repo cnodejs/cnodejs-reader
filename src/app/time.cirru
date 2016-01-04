@@ -51,10 +51,10 @@ var
 
   :styleRoot $ \ ()
     {}
-      :backgroundColor $ hsl 0 80 80
-      :color $ hsl 0 0 100
+      :color $ hsl 0 0 86
       :fontFamily reset.fashionFonts
-      :padding ":0 10px"
-      :lineHeight :20px
-      :height :20px
+      :padding ":0 0px"
+      :lineHeight :18px
+      :height :18px
       :fontSize :12px
+      :borderRadius 2
