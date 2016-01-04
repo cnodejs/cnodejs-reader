@@ -33,5 +33,8 @@ if module.hot $ do
       :initial schema.store
       :updater updater
   module.hot.accept :./controller $ \ ()
+  module.hot.accept :./app/page $ \ ()
+    = Page $ React.createFactory $ require :./app/page
+    recorder.request render
 
 controller.start

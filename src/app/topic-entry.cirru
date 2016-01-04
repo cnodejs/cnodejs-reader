@@ -37,18 +37,18 @@ var
       visits $ @props.topic.get :visit_count
     div ({} (:style $ @styleRoot) (:onClick @onClick))
       Author $ {} (:author $ @props.topic.get :author)
-      Space $ {} (:width 5)
+      Space $ {} (:width 10)
       a ({} (:style $ @styleTitle) (:href $ + :#/topic/ id) (:className :topic-title))
         @props.topic.get :title
-      Space $ {} (:width 5)
+      Space $ {} (:width 10)
       cond @props.showLabel
         Hint $ {} (:text $ + replies :/ visits)
 
   :styleRoot $ \ ()
     {}
       :fontFamily reset.contentFonts
-      :lineHeight :30px
-      :fontSize :14px
+      :lineHeight :36px
+      :fontSize :15px
       :display :flex
       :flexDirection :row
       :alignItems :center

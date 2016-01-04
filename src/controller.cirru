@@ -48,9 +48,11 @@ var
       actions.routerUser loginname
     do
       actions.deviceLoading :user
-      ajax.userGet loginname $ \ (user)
-        actions.userGet user
-        actions.routerUser loginname
+      var maybeToken $ localStorage.getItem :cnodejs-reader-token
+      if (? maybeToken) $ do
+        ajax.userGet loginname maybeToken $ \ (user)
+          actions.userGet user
+          actions.routerUser loginname
         actions.deviceLoaded
   , undefined
 
