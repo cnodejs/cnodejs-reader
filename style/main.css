@@ -5,6 +5,7 @@
 @import url(~highlight.js/styles/github.css);
 
 body {
+  font-family: Pingfang SC, Microsoft Yahei, Verdana, sans-serif;
 }
 
 .topic-title:link {
