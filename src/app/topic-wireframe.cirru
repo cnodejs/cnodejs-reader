@@ -13,7 +13,7 @@ var
   ({}~ div span) React.DOM
 
 = module.exports $ React.createClass $ {}
-  :displayName :app-wireframe
+  :displayName :topic-wireframe
 
   :render $ \ ()
     div ({} (:style $ @styleRoot))
@@ -27,6 +27,7 @@ var
       :display :flex
       :justifyContent :center
       :alignItems :center
+      :backgroundColor :white
 
   :styleBox $ \ ()
 

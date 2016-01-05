@@ -57,7 +57,8 @@ var
       AppWireframe
       div ({} (:style $ @styleRoot))
         div ({} (:style $ @styleMain))
-          div ({} (:style $ @styleList))
+          div ({} :style @styleAroundSpace)
+          div ({} :style @styleList)
             cond (? user)
               div ({} (:style $ @styleToolbar))
                 Button $ {} (:text :refresh) (:onClick @onRefresh)
@@ -84,6 +85,7 @@ var
               :user $ UserDetail $ {}
                 :user $ store.getIn $ [] :users loginname
               :post $ TopicPost
+          div ({} :style @styleAroundSpace)
 
   :styleRoot $ \ ()
     {}
@@ -91,24 +93,26 @@ var
       :width :100%
       :height :100%
       :overflowX :auto
+      :backgroundColor (hsl 180 26 28)
 
   :styleMain $ \ ()
     {}
-      :width :2200px
+      :width :3200px
       :display :flex
       :height :100%
 
-  :styleList $ \ ()
-    {}
-      :height :100%
-      :display :flex
-      :flexDirection :column
+  :styleList $ {}
+    :height :100%
+    :display :flex
+    :flexDirection :column
+    :borderRight $ + ":1px solid " (hsl 0 0 90)
+    :backgroundColor :white
 
   :styleToolbar $ \ ()
     {}
       :display :flex
       :alignItems :center
-      :padding ":10px 10px"
+      :padding ":10px 40px"
       :justifyContent :flex-end
 
   :styleToken $ \ ()
@@ -124,3 +128,7 @@ var
     {}
       :display :flex
       :justifyContent :flex-end
+
+  :styleAroundSpace $ {}
+    :width 400
+    :flexShrink 0

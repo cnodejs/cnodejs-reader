@@ -34,9 +34,8 @@ var
   :styleRoot $ \ ()
     {}
       :marginTop :10px
-      :padding ":0 10px"
-      :margin ":20px 0"
-      :borderBottom $ + ":1px solid " (hsl 0 0 95)
+      :padding ":0 0px"
+      :margin ":40px 0"
 
   :styleInfo $ \ ()
     {}
@@ -45,4 +44,4 @@ var
 
   :styleContent $ \ ()
     {}
-      :paddingLeft :24px
+      :paddingLeft :0px

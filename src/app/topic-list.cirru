@@ -31,7 +31,7 @@ var
       :isSelected (is (topic.get :id) @props.selectedTopic)
 
   :render $ \ ()
-    div ({} (:style $ @styleRoot))
+    div ({} :style @styleRoot)
       Space $ {} (:height 40)
       MessageList $ {} (:messages @props.messages)
       @props.topics.map @renderTopic
@@ -40,16 +40,15 @@ var
           Button $ {} (:text :more) (:onClick @onMore)
       Space $ {} (:height 400)
 
-  :styleRoot $ \ ()
-    {}
-      :width :600px
-      :flex 1
-      :overflowY :auto
-      :display :inline-block
+  :styleRoot $ {}
+    :width :800px
+    :flex 1
+    :overflowY :auto
+    :display :inline-block
 
   :styleFooter $ \ ()
     {}
       :display :flex
       :justifyContent :flex-start
       :marginTop :10px
-      :paddingLeft :10px
+      :paddingLeft :40px

@@ -58,3 +58,4 @@ var
       :height :18px
       :fontSize :12px
       :borderRadius 2
+      :whiteSpace :nowrap

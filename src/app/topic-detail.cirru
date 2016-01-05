@@ -53,12 +53,12 @@ var
   :renderEditor $ \ ()
     div ({} (:style $ @styleEditor))
       Space $ {} (:height 20)
-      div ({} (:style $ @styleSection)) ":reply:"
       textarea $ {} (:style $ @styleText)
         :value @state.text
         :onChange @onTextChange
         :onKeyDown @onTextKeyDown
         :placeholder :reply...
+      Space $ {} (:height 10)
       div ({} (:style $ @styleWrapper))
         Content $ {} (:text @state.text)
       Space $ {} (:height 10)
@@ -72,7 +72,7 @@ var
       replies $ topic.get :replies
 
     div ({} (:style $ @styleRoot))
-      div ({} (:style $ @styleContent))
+      div ({} :style @styleContent)
         div ({} (:style $ @styleTitle))
           topic.get :title
         Space $ {} :height 20
@@ -103,15 +103,16 @@ var
       :width :1600px
       :overflowY :auto
       :height :100%
+      :backgroundColor :white
 
-  :styleContent $ \ ()
-    {}
-      :width :800px
-      :paddingBottom :300px
-      :paddingLeft :20px
-      :paddingRight :20px
-      :height :100%
-      :overflowY :auto
+  :styleContent $ {}
+    :width :800px
+    :paddingBottom :300px
+    :paddingLeft :40px
+    :paddingRight :40px
+    :height :100%
+    :overflowY :auto
+    :borderRight $ + ":1px solid " (hsl 0 0 90)
 
   :styleReplies $ \ ()
     {}
@@ -119,7 +120,7 @@ var
       :height :100%
       :display :inline-block
       :overflowY :auto
-      :padding ":10px 10px"
+      :padding ":20px 40px"
 
   :styleTitle $ \ ()
     {}

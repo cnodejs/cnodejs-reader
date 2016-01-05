@@ -56,12 +56,11 @@ var
       :display :flex
       :flexDirection :row
       :alignItems :center
-      :padding ":8px 10px"
+      :padding ":10px 40px"
       :cursor :pointer
-      :borderBottom $ + ":1px solid " $ hsl 0 0 94
       :backgroundColor $ cond @props.isSelected
         hsl 0 0 95
-        hsl 0 0 100
+        hsl 0 0 100 0
 
   :styleTitle $ {}
     :textDecoration :none

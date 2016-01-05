@@ -2,6 +2,7 @@
 .markdown-content p {
   margin: 5px 0;
   margin-bottom: 20px;
+  line-height: 1.8em;
 }
 
 .markdown-content img {
