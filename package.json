@@ -13,18 +13,16 @@
   ],
   "devDependencies": {
     "autoprefixer-loader": "^3.0.0",
-    "cirru-script": "0.5.0-alpha2",
-    "cirru-script-loader": "0.5.0-alpha2",
+    "coffee-loader": "^0.7.3",
+    "coffee-script": "^1.12.5",
     "css-loader": "^0.17.0",
     "del": "^1.2.1",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
     "gulp": "^3.9.0",
-    "gulp-cirru-script": "0.5.0-alpha2",
     "gulp-util": "^3.0.7",
     "hsl": "^0.1.1",
     "json-loader": "^0.5.3",
-    "rsyncwrapper": "^0.4.3",
     "run-sequence": "^1.1.2",
     "stir-template": "^0.1.4",
     "style-loader": "^0.12.3",
@@ -33,6 +31,7 @@
     "webpack-dev-server": "^1.10.1"
   },
   "dependencies": {
+    "actions-recorder": "^1.6.4-alpha1",
     "highlight.js": "^9.0.0",
     "hsl": "^0.1.1",
     "immutable": "^3.7.6",
