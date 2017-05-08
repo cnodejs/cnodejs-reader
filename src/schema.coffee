@@ -1,6 +1,7 @@
-'use strict'
+
 Immutable = require('immutable')
-exports.store = Immutable.fromJS(
+
+exports.store = Immutable.fromJS
   router:
     name: 'home'
     data: {}
@@ -16,4 +17,4 @@ exports.store = Immutable.fromJS(
     loadingKind: null
     loginname: null
     page: 0
-    isTopicEnd: false)
+    isTopicEnd: false

@@ -1,4 +1,4 @@
-'use strict'
+
 recorder = require('actions-recorder')
 dispatch = recorder.dispatch
 

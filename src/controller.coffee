@@ -1,4 +1,4 @@
-'use strict'
+
 recorder = require('actions-recorder')
 Immutable = require('immutable')
 ajax = require('./ajax')
@@ -6,26 +6,19 @@ actions = require('./actions')
 
 exports.start = ->
   store = recorder.getStore()
-  page = store.getIn([
-    'device'
-    'page'
-  ])
+  page = store.getIn(['device', 'page'])
   actions.deviceLoading 'start'
   ajax.topicGetList page + 1, (topicList) ->
     actions.topicGetList topicList
     actions.deviceLoaded()
   maybeToken = localStorage.getItem('cnodejs-reader-token')
-  if maybeToken != null
+  if maybeToken?
     exports.userAccesstoken maybeToken, (loginname) ->
       exports.loopRequestMessages maybeToken
-  undefined
 
 exports.routerTopic = (id) ->
   store = recorder.getStore()
-  if store.hasIn([
-      'topicDetails'
-      id
-    ])
+  if store.hasIn(['topicDetails', id])
     actions.routerTopic id
   else
     actions.deviceLoading 'topic'
@@ -33,14 +26,10 @@ exports.routerTopic = (id) ->
       actions.topicGet topic
       actions.routerTopic id
       actions.deviceLoaded()
-  undefined
 
 exports.routerUser = (loginname) ->
   store = recorder.getStore()
-  if store.hasIn([
-      'users'
-      loginname
-    ])
+  if store.hasIn(['users', loginname])
     actions.routerUser loginname
   else
     actions.deviceLoading 'user'
@@ -78,10 +67,7 @@ exports.replyCreate = (data) ->
 
 exports.topicMore = ->
   store = recorder.getStore()
-  page = store.getIn([
-    'device'
-    'page'
-  ])
+  page = store.getIn(['device', 'page'])
   ajax.topicGetList page + 1, (topicList) ->
     actions.topicGetList topicList
 
@@ -95,27 +81,20 @@ exports.routerGo = (info) ->
     when 'home'
       actions.routerHome()
     when 'topic'
-      exports.routerTopic info.getIn([
-        'data'
-        'id'
-      ])
+      exports.routerTopic info.getIn(['data', 'id'])
     when 'user'
-      exports.routerUser info.getIn([
-        'data'
-        'loginname'
-      ])
+      exports.routerUser info.getIn(['data', 'loginname'])
     when 'post'
       actions.routerPost()
     else
       actions.routerHome()
       break
-  undefined
 
 exports.loopRequestMessages = (token) ->
   exports.messageGetList token
-  setInterval (->
+  setInterval ->
     exports.messageGetList token
-  ), 20000
+  , 20000
 
 exports.messageGetList = (token) ->
   store = recorder.getStore()
@@ -123,7 +102,6 @@ exports.messageGetList = (token) ->
   ajax.messageGetList token, (messages) ->
     if !Immutable.is(Immutable.fromJS(messages), currentMessages)
       actions.messageGetList messages
-    undefined
 
 exports.messageMarkAll = ->
   token = localStorage.getItem('cnodejs-reader-token')
