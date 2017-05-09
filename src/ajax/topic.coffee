@@ -4,7 +4,7 @@ configs = require('../configs')
 
 exports.getList = (page, cb) ->
   reqwest
-    url: configs.domain + '/api/v1/topics'
+    url: "#{configs.domain}/api/v1/topics"
     type: 'json'
     data:
       page: page
@@ -18,7 +18,7 @@ exports.getList = (page, cb) ->
 
 exports.get = (id, cb) ->
   reqwest
-    url: configs.domain + '/api/v1/topic/' + id
+    url: "#{configs.domain}/api/v1/topic/#{id}"
     data: [ {
       name: 'mdrender'
       value: false
@@ -33,7 +33,7 @@ exports.get = (id, cb) ->
 
 exports.create = (data, token, cb) ->
   reqwest
-    url: configs.domain + '/api/v1/topics'
+    url: "#{configs.domain}/api/v1/topics"
     data: JSON.stringify(
       title: data.title
       content: data.content

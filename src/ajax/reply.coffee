@@ -1,10 +1,10 @@
-'use strict'
+
 reqwest = require('reqwest')
 configs = require('../configs')
 
 exports.create = (data, token, cb) ->
   reqwest
-    url: configs.domain + '/api/v1/topic/' + data.topic_id + '/replies'
+    url: "#{configs.domain}/api/v1/topic/#{data.topic_id}/replies"
     data: JSON.stringify(
       accesstoken: token
       content: data.content

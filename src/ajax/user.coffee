@@ -4,7 +4,7 @@ configs = require('../configs')
 
 exports.get = (loginname, token, cb) ->
   reqwest
-    url: configs.domain + '/api/v1/user/' + loginname
+    url: "#{configs.domain}/api/v1/user/#{loginname}"
     type: 'json'
     data: accesstoken: token
     method: 'get'
@@ -16,7 +16,7 @@ exports.get = (loginname, token, cb) ->
 
 exports.accesstoken = (token, cb) ->
   reqwest
-    url: configs.domain + '/api/v1/accesstoken'
+    url: "#{configs.domain}/api/v1/accesstoken"
     data: JSON.stringify(accesstoken: token)
     type: 'json'
     method: 'post'

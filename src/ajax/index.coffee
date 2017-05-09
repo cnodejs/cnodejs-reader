@@ -1,8 +1,9 @@
-'use strict'
+
 user = require('./user')
 reply = require('./reply')
 topic = require('./topic')
 message = require('./message')
+
 exports.topicGet = topic.get
 exports.topicCreate = topic.create
 exports.topicGetList = topic.getList
