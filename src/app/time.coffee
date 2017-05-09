@@ -1,4 +1,4 @@
-'use strict'
+
 hsl = require('hsl')
 React = require('react')
 reset = require('../util/reset')
@@ -7,9 +7,12 @@ now = new Date
 thisYear = now.getFullYear()
 thisMonth = now.getMonth()
 thisDay = now.getDate()
-module.exports = React.createClass(
+
+module.exports = React.createClass
   displayName: 'app-time'
-  propTypes: time: React.PropTypes.string.isRequired
+  propTypes:
+    time: React.PropTypes.string.isRequired
+
   getTime: ->
     thatTime = new Date(@props.time)
     current = new Date
@@ -20,28 +23,29 @@ module.exports = React.createClass(
     thatMin = thatTime.getMinutes()
     currentHour = current.getHours()
     currentMin = current.getMinutes()
-    if thatYear != thisYear
-      return thatYear + '/' + thatMonth + '/' + thatDay
-    if thatMonth != thisMonth
-      return thisMonth + '/' + thatDay
-    if thatDay != thisDay
-      return '' + thisDay - thatDay + ' ' + 'days'
-    if thatHour != currentHour
-      return thatHour + ':' + thatMin
-    if thatMin != currentMin
-      return thatHour + ':' + thatMin
-    'now'
+
+    switch
+      when thatYear isnt thisYear
+        "#{thatYear}/#{thatMonth}/#{thatDay}"
+      when thatMonth isnt thisMonth
+        "#{thisMonth}/#{thatDay}"
+      when thatDay isnt thisDay
+        "#{thisDay - thatDay}days"
+      when thatHour isnt currentHour
+        "#{thatHour}:#{thatMin}"
+      when thatMin isnt currentMin
+        "#{thatHour}:#{thatMin}"
+      else 'now'
+
   render: ->
-    div { style: @styleRoot() }, @getTime()
+    div style: @styleRoot(), @getTime()
+
   styleRoot: ->
-    {
-      color: hsl(0, 0, 86)
-      fontFamily: reset.fashionFonts
-      padding: '0 0px'
-      lineHeight: '18px'
-      height: '18px'
-      fontSize: '12px'
-      borderRadius: 2
-      whiteSpace: 'nowrap'
-    }
-)
+    color: hsl(0, 0, 86)
+    fontFamily: reset.fashionFonts
+    padding: '0 0px'
+    lineHeight: '18px'
+    height: '18px'
+    fontSize: '12px'
+    borderRadius: 2
+    whiteSpace: 'nowrap'
