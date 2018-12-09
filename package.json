@@ -36,11 +36,11 @@
     "hsl": "^0.1.1",
     "immutable": "^3.7.6",
     "keycode": "^2.1.0",
-    "react": "^0.14.5",
+    "react": "^0.14.9",
     "react-dom": "^0.14.5",
     "react-remarkable": "^1.1.1",
     "reqwest": "^2.0.5",
-    "router-view": "^1.1.6"
+    "router-view": "^1.1.7"
   },
   "repository": {
     "type": "git",
