@@ -4,7 +4,9 @@
   "description": "Web app scaffold based on Webpack",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "author": "jiyinyiyong",
   "license": "MIT",
@@ -40,7 +42,8 @@
     "react-dom": "^0.14.5",
     "react-remarkable": "^1.1.1",
     "reqwest": "^2.0.5",
-    "router-view": "^1.1.7"
+    "router-view": "^1.1.7",
+    "snyk": "^1.431.2"
   },
   "repository": {
     "type": "git",
@@ -49,5 +52,6 @@
   "bugs": {
     "url": "https://github.com/cnodejs/cnodejs-reader/issues"
   },
-  "homepage": "https://github.com/cnodejs/cnodejs-reader"
+  "homepage": "https://github.com/cnodejs/cnodejs-reader",
+  "snyk": true
 }
