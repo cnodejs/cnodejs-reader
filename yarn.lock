@@ -1330,9 +1330,10 @@ hawk@~3.1.3:
     hoek "2.x.x"
     sntp "1.x.x"
 
-highlight.js@^9.0.0:
-  version "9.11.0"
-  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.11.0.tgz#47f98c7399918700db2caf230ded12cec41a84ae"
+highlight.js@^9.18.2:
+  version "9.18.5"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.18.5.tgz#d18a359867f378c138d6819edfc2a8acd5f29825"
+  integrity sha512-a5bFyofd/BHCX52/8i8uJkjr9DYwXIPnM/plwI6W7ezItLGqzt7X2G2nXuYSfsIJdkwwj/g9DG1LkcGJI/dDoA==
 
 hoek@2.x.x:
   version "2.16.3"
@@ -2568,9 +2569,17 @@ react-remarkable@^1.1.1:
   dependencies:
     remarkable "^1.4.1"
 
-react@>=0.13.1, react@>=0.13.3, react@^0.14.5:
+react@>=0.13.1, react@>=0.13.3:
   version "0.14.9"
   resolved "https://registry.yarnpkg.com/react/-/react-0.14.9.tgz#9110a6497c49d44ba1c0edd317aec29c2e0d91d1"
+  dependencies:
+    envify "^3.0.0"
+    fbjs "^0.6.1"
+
+react@^0.14.9:
+  version "0.14.10"
+  resolved "https://registry.yarnpkg.com/react/-/react-0.14.10.tgz#c10d7750f1c5b34eee2a123915ac4c14c01c1081"
+  integrity sha512-yxMw5aorZG4qsLVBfjae4wGFvd5708DhcxaXLJ3IOTgr1TCs8k9+ZheGgLGr5OfwWMhSahNbGvvoEDzrxVWouA==
   dependencies:
     envify "^3.0.0"
     fbjs "^0.6.1"
@@ -2743,9 +2752,10 @@ ripemd160@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/ripemd160/-/ripemd160-0.2.0.tgz#2bf198bde167cacfa51c0a928e84b68bbe171fce"
 
-router-view@^1.1.6:
+router-view@^1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/router-view/-/router-view-1.1.7.tgz#f73de0c98c09500f5cc458011fb40a237cc9e3f0"
+  integrity sha1-9z3gyYwJUA9cxFgBH7QKI3zJ4/A=
   dependencies:
     immutable "^3.7.5"
     react ">=0.13.3"

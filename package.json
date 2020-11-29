@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "actions-recorder": "^1.6.4-alpha1",
-    "highlight.js": "^9.0.0",
+    "highlight.js": "^9.18.2",
     "hsl": "^0.1.1",
     "immutable": "^3.7.6",
     "keycode": "^2.1.0",
